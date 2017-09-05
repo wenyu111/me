@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+    <meta charset="utf-8" />
+    <title>电商CRM - 客户管理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/datatables/extensions/Scroller/css/dataTables.scroller.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css" />
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/jstree/dist/themes/default/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/select2/select2.css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN THEME STYLES -->
+    <link href="../../assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/crm/layout/css/layout.css" rel="stylesheet" type="text/css" />
+    <link id="style_color" href="../../assets/crm/layout/css/themes/darkblue.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/crm/layout/css/custom.css" rel="stylesheet" type="text/css" />
+    <!-- END THEME STYLES -->
+    <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
+<!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
+<!-- DOC: Apply "page-sidebar-hide" class to the body to make the sidebar completely hidden on toggle -->
+<!-- DOC: Apply "page-sidebar-closed-hide-logo" class to the body element to make the logo hidden on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-hide" class to body element to completely hide the sidebar on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-fixed" class to have fixed sidebar -->
+<!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
+<!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
+<!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <!-- BEGIN HEADER -->
+    <div class="page-header navbar navbar-fixed-top">
+        <!-- BEGIN HEADER INNER -->
+        <div class="page-header-inner">
+            <!-- BEGIN LOGO -->
+            <div class="page-logo">
+                <a href="index.html">
+                    <img src="../../assets/crm/layout/img/logo.png" alt="logo" class="logo-default" />
+                </a>
+                <div class="menu-toggler sidebar-toggler hide">
+                    <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
+                </div>
+            </div>
+            <!-- END LOGO -->
+            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+            <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+            </a>
+            <!-- END RESPONSIVE MENU TOGGLER -->
+            <!-- BEGIN TOP NAVIGATION MENU -->
+            <div class="top-menu">
+                <ul class="nav navbar-nav pull-right">
+                    <!-- BEGIN USER LOGIN DROPDOWN -->
+                    <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                    <li class="dropdown dropdown-user">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <img alt="" class="img-circle" src="../../assets/crm/layout/img/avatar3_small.jpg" />
+                            <span class="username username-hide-on-mobile">
+                    王艳梅 </span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-default">
+                            <li>
+                                <a href="login.html">
+                                    <i class="icon-key"></i> Log Out </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- END USER LOGIN DROPDOWN -->
+                </ul>
+            </div>
+            <!-- END TOP NAVIGATION MENU -->
+        </div>
+        <!-- END HEADER INNER -->
+    </div>
+    <!-- END HEADER -->
+    <div class="clearfix">
+    </div>
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+        <!-- BEGIN SIDEBAR -->
+        <div class="page-sidebar-wrapper">
+            <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+            <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+            <div class="page-sidebar navbar-collapse collapse">
+                <!-- BEGIN SIDEBAR MENU -->
+                <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+                <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+                <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+                <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+                <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                    <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+                    <li class="sidebar-toggler-wrapper">
+                        <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                        <div class="sidebar-toggler">
+                        </div>
+                        <!-- END SIDEBAR TOGGLER BUTTON -->
+                    </li>
+                    <li class="start">
+                        <a href="javascript:;">
+                            <i class="icon-home"></i>
+                            <span class="title">工作台</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-users"></i>
+                            <span class="title">客户管理</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="javascript:;">
+                                    <i class="fa fa-user"></i> 全部客户 <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="#"><i class="icon-tag"></i> 客户详情页</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="icon-pencil"></i> 订单详情页</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-user"></i> 公共客户</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-user"></i> 超30天未跟进客户</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-file-text-o"></i>
+                            <span class="title">线索管理</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="javascript:;">
+                                    <i class="fa fa-user"></i> 线索管理 <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="#"><i class="icon-tag"></i> 批量导入线索</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="icon-pencil"></i> 线索导入模板</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <i class="fa fa-user"></i> 线索来源配置 <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="#"><i class="icon-settings"></i> 新建/编辑线索来源</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="javascript:;">
+                            <i class="glyphicon glyphicon-briefcase"></i>
+                            <span class="title">业务管理</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="index.html">
+                                    <i class="icon-bar-chart"></i> 买车顾问管理
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="icon-puzzle"></i>
+                            <span class="title">统计报表</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="#"><i class="icon-bar-chart"></i> 买顾工作业绩统计</a></li>
+                            <li><a href="#"><i class="icon-bar-chart"></i> 买顾新分配客户跟进数据</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" target="_blank">
+                            <i class="glyphicon glyphicon-tasks"></i>
+                            <span class="title">
+                    公告管理 </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" target="_blank">
+                            <i class="icon-envelope"></i>
+                            <span class="title">任务管理 </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class=" icon-envelope"></i>
+                            <span class="title">消息中心</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="#"><i class="fa fa-comment-o"></i> 待办提醒<span class="c-red">(100)</span></a></li>
+                            <li><a href="#"><i class="fa fa-comment-o"></i> 订单提醒<span class="c-red">(10)</span></a></li>
+                            <li><a href="#"><i class="fa fa-comment-o"></i> 评价投诉<span class="c-red">(10)</span></a></li>
+                            <li><a href="#"><i class="fa fa-comment-o"></i> 系统公告<span class="c-red">(10)</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- END SIDEBAR MENU -->
+            </div>
+        </div>
+        <!-- END SIDEBAR -->
+        <!-- BEGIN CONTENT -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <!-- BEGIN PAGE HEADER-->
+                <h3 class="page-title">
+                创建贷款订单
+            </h3>
+                <div class="page-bar">
+                    <ul class="page-breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="index.html">活动管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="#">创建任务</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END PAGE HEADER-->
+                <!-- BEGIN PAGE CONTENT-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portlet box blue" id="form_wizard_1">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="fa fa-gift"></i> 创建贷款订单
+                                </div>
+                            </div>
+                            <div class="portlet-body form" style="overflow: visible;">
+                                <form action="#" class="form-horizontal text14" id="submit_form" method="POST">
+                                    <div class="form-wizard">
+                                        <div class="form-body">
+                                            <ul class="nav nav-pills nav-justified steps">
+                                                <li>
+                                                    <a href="#tab1" data-toggle="tab" class="step">
+                                                        <span class="number">
+                                                1 </span>
+                                                        <span class="desc">
+                                                <i class="fa fa-check"></i>贷款方案测试</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#tab2" data-toggle="tab" class="step">
+                                                        <span class="number">
+                                                2 </span>
+                                                        <span class="desc">
+                                                <i class="fa fa-check"></i>确认还款明细</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#tab3" data-toggle="tab" class="step active">
+                                                        <span class="number">
+                                                3 </span>
+                                                        <span class="desc">
+                                                <i class="fa fa-check"></i>提交贷款订单</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="tab1">
+                                                    <div class="form-group">
+                                                        <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label"><span class="required" aria-required="true">* </span>购车城市：</label>
+                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                <select class="form-control ">
+                                                                    <option>请选择城市</option>
+                                                                    <option>双十一</option>
+                                                                    <option>团购项目</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label"><span class="required" aria-required="true">* </span>购车城市：</label>
+                                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-4 ">
+                                                                <select class="form-control ">
+                                                                    <option>选择主品牌</option>
+                                                                    <option>双十一</option>
+                                                                    <option>团购项目</option>
+                                                                </select>
+                                                                <div class="has-error">
+                                                                    <span class="help-block">请选择车辆信息</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-4 ">
+                                                                <select class="form-control ">
+                                                                    <option>选择主品牌</option>
+                                                                    <option>双十一</option>
+                                                                    <option>团购项目</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-4 ">
+                                                                <select class="form-control ">
+                                                                    <option>选择主品牌</option>
+                                                                    <option>双十一</option>
+                                                                    <option>团购项目</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label"><span class="required" aria-required="true">* </span>裸车售价：</label>
+                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                <input type="text" class="form-control " placeholder="">
+                                                                <div class="has-error">
+                                                                    <span class="help-block">请填写正确的价格（指导价的40%~120%)</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 padding-0">
+                                                            <label class="control-label">元</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label"><span class="required" aria-required="true">* </span>成交商家：</label>
+                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                <select class="form-control ">
+                                                                    <option>待办类型</option>
+                                                                    <option>短信通知</option>
+                                                                </select>
+                                                                <div class="has-error">
+                                                                    <span class="help-block">请填写正确时间</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 padding-0">
+                                                            <span class="help-block">选择成交商家后提交订单时不可更改</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-lg-2 col-md-2 col-sm-3 col-xs-3"><span class="required" aria-required="true">* </span>首付比例：</label>
+                                                        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9 btn-padding-small">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                <a href="javascript:;" class="btn blue col-lg-1 col-md-1 col-sm-1 col-xs-1">0%</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1 ">10%</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1 ">20%</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1 ">30%</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1 ">40%</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1 ">50%</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1 ">60%</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1 ">70%</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-lg-2 col-md-2 col-sm-3 col-xs-3"><span class="required" aria-required="true">* </span>贷款期限：</label>
+                                                        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9 btn-padding-small">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                <a href="javascript:;" class="btn blue col-lg-1 col-md-1 col-sm-1 col-xs-1">12期</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1 ">24期</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1 ">36期</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1 ">48期</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1 ">60期</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                            <button type="submit" class="btn blue flr "> 计算还款方案 </button>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 还款方案 -->
+                                                    <div class="repay-plan">
+                                                        <div class="form-group">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 dk-money ">
+                                                                <label class=" control-label  text-left  col-lg-2 col-md-2 col-sm-2 col-xs-2">首付：<span class="font-red">￥16,350元</span></label>
+                                                                <label class="  control-label  text-left ">贷款额度：<span class="font-red">￥16,350元</span></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 dk-money ">
+                                                                <label class="control-label  text-left  col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                    没有符合条件的贷款方案，请尝试调整筛选条件重新搜索 </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 dk-money ">
+                                                                <label class="control-label  text-left  col-lg-12 col-md-12 col-sm-12 col-xs-12 ">共有3种贷款方案 </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                <div class="table-responsive">
+                                                                    <table class="table table-hover table-bordered table-striped">
+                                                                        <thead>
+                                                                            <tr class="gray">
+                                                                                <th>贷款套餐</th>
+                                                                                <th>套餐特点</th>
+                                                                                <th>商家数量</th>
+                                                                                <th>月费率/月利率</th>
+                                                                                <th>月供</th>
+                                                                                <th>贷款成本</th>
+                                                                                <th>平台服务费</th>
+                                                                                <th>保险</th>
+                                                                                <th>GPS费用</th>
+                                                                                <th>违章押金</th>
+                                                                                <th>操作</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td><a href="#">易鑫金融一证贷</a></td>
+                                                                                <td>极速审批 资料简便 低首付</td>
+                                                                                <td><a href="#">20</a> </td>
+                                                                                <td>0.63%</td>
+                                                                                <td>￥1,302</td>
+                                                                                <td>￥8,710</td>
+                                                                                <td>￥8,710</td>
+                                                                                <td>不含</td>
+                                                                                <td>不含</td>
+                                                                                <td>不含</td>
+                                                                                <td><a href="#" class="button-next">申请</a></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><a href="#">易鑫金融一证贷</a></td>
+                                                                                <td>极速审批 资料简便 低首付</td>
+                                                                                <td><a href="#">20</a> </td>
+                                                                                <td>0.63%</td>
+                                                                                <td>￥1,302</td>
+                                                                                <td>￥8,710</td>
+                                                                                <td>￥8,710</td>
+                                                                                <td>不含</td>
+                                                                                <td>不含</td>
+                                                                                <td>不含</td>
+                                                                                <td><a href="#" class="button-next">申请</a></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><a href="#">易鑫金融一证贷</a></td>
+                                                                                <td>极速审批 资料简便 低首付</td>
+                                                                                <td><a href="#">20</a> </td>
+                                                                                <td>0.63%</td>
+                                                                                <td>￥1,302</td>
+                                                                                <td>￥8,710</td>
+                                                                                <td>￥8,710</td>
+                                                                                <td>不含</td>
+                                                                                <td>不含</td>
+                                                                                <td>不含</td>
+                                                                                <td><a href="#" class="button-next">申请</a></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><a href="#">易鑫金融一证贷</a></td>
+                                                                                <td>极速审批 资料简便 低首付</td>
+                                                                                <td><a href="#">20</a> </td>
+                                                                                <td>0.63%</td>
+                                                                                <td>￥1,302</td>
+                                                                                <td>￥8,710</td>
+                                                                                <td>￥8,710</td>
+                                                                                <td>不含</td>
+                                                                                <td>不含</td>
+                                                                                <td>不含</td>
+                                                                                <td><a href="#" class="button-next">申请</a></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><a href="#">易鑫金融一证贷</a></td>
+                                                                                <td>极速审批 资料简便 低首付</td>
+                                                                                <td><a href="#">20</a> </td>
+                                                                                <td>0.63%</td>
+                                                                                <td>￥1,302</td>
+                                                                                <td>￥8,710</td>
+                                                                                <td>￥8,710</td>
+                                                                                <td>不含</td>
+                                                                                <td>不含</td>
+                                                                                <td>不含</td>
+                                                                                <td><a href="#" class="button-next">申请</a></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><a href="#">易鑫金融一证贷</a></td>
+                                                                                <td>极速审批 资料简便 低首付</td>
+                                                                                <td><a href="#">20</a> </td>
+                                                                                <td>0.63%</td>
+                                                                                <td>￥1,302</td>
+                                                                                <td>￥8,710</td>
+                                                                                <td>￥8,710</td>
+                                                                                <td>不含</td>
+                                                                                <td>不含</td>
+                                                                                <td>不含</td>
+                                                                                <td><a href="#" class="button-next">申请</a></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><a href="#">易鑫金融一证贷</a></td>
+                                                                                <td>极速审批 资料简便 低首付</td>
+                                                                                <td><a href="#">20</a> </td>
+                                                                                <td>0.63%</td>
+                                                                                <td>￥1,302</td>
+                                                                                <td>￥8,710</td>
+                                                                                <td>￥8,710</td>
+                                                                                <td>不含</td>
+                                                                                <td>不含</td>
+                                                                                <td>不含</td>
+                                                                                <td><a href="#" class="button-next">申请</a></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--还款方案end  -->
+                                                </div>
+                                                <div class="tab-pane" id="tab2">
+                                                    <div class="form-group form-section form-title">
+                                                        <h3>哈弗H1 2017款 红标 1.5L MT 标准型 </h3>
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6  dk-money">
+                                                                <label class=" control-label  text-left  ">裸车售价：￥54,500</label>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6  dk-money">
+                                                                <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 ">裸车售价：￥54,500</label>
+                                                                <a href="javascript:;" class="btn green flr button-previous ">更换方案</a>
+                                                            </div>
+                                                        </div>
+                                                       
+                                                      
+                                                    </div>
+                                                    <div style="padding-left: 30px;">
+                                                        <h3>易鑫金融一证贷 </h3>
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 dk-money">
+                                                                <label class=" control-label  text-left  ">总花费</label>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 dk-money">
+                                                                <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 font-red">￥54,500</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="portlet box ">
+                                                        <div class="portlet-body  form-horizontal form-font-14" style="padding-left: 30px;">
+                                                            <div class="portlet">
+                                                                <div class="portlet-title">
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 dk-money">
+                                                                            <label class=" control-label  text-left  ">首次支付</label>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 dk-money">
+                                                                            <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 ">￥4,500</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="portlet-body">
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                            <label class=" control-label  text-left  ">首付比例30%:</label>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                            <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 ">￥16,350</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                                            <label class=" control-label  text-left  ">保证金比例0%:</label>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                            <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 ">￥10</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                            <label class=" control-label  text-left  ">一次性付息:</label>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                                            <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 ">￥160</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="portlet">
+                                                                <div class="portlet-title">
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 dk-money">
+                                                                            <label class=" control-label  text-left  ">贷款额度:</label>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 dk-money">
+                                                                            <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 ">￥38,150</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="portlet-body">
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                            <label class=" control-label  text-left  ">尾付比例0%:</label>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                            <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 ">￥10</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="portlet">
+                                                                <div class="portlet-title">
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 dk-money">
+                                                                            <label class=" control-label  text-left  ">月供</label>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 dk-money">
+                                                                            <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 ">￥1,205</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="portlet-body">
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                            <label class=" control-label  text-left  ">贷款期限:</label>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                            <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 ">36期</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                            <label class=" control-label  text-left  ">月利率/月费率:</label>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                                            <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 ">0.71%</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                            <label class=" control-label  text-left  ">最后一月还贷:</label>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                            <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 ">￥160</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="portlet">
+                                                                <div class="portlet-title">
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 dk-money">
+                                                                            <label class=" control-label  text-left  ">贷款成本</label>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 dk-money">
+                                                                            <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 ">￥1,205</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="portlet-body">
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                            <label class=" control-label  text-left  ">总利息:</label>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                            <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 ">￥5,237</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                            <label class=" control-label  text-left  ">手续费:</label>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                            <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 ">￥5,237</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="portlet">
+                                                                <div class="portlet-title">
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 dk-money">
+                                                                            <label class=" control-label  text-left  ">首次支付</label>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 dk-money">
+                                                                            <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 ">￥4,500</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="portlet-body">
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                            <label class=" control-label  text-left  ">首付比例30%:</label>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                            <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 ">￥16,350</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                            <label class=" control-label  text-left  ">保证金比例0%:</label>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                            <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 ">￥10</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                            <label class=" control-label  text-left  ">一次性付息:</label>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                            <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 ">￥160</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="portlet">
+                                                                <div class="portlet-title">
+                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 dk-money">
+                                                                            <label class=" control-label  text-left  ">附加信息:</label>
+                                                                        </div>
+                                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 dk-money">
+                                                                            <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 "></label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="portlet-body">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                        <label class=" control-label  text-left  ">保险:</label>
+                                                                    </div>
+                                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                        <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 ">￥10</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                        <label class=" control-label  text-left  ">GPS费用:</label>
+                                                                    </div>
+                                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                        <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 ">￥10</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                        <label class=" control-label  text-left  ">违章押金:</label>
+                                                                    </div>
+                                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                        <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 ">￥10</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                        <label class=" control-label  text-left  ">服务费:</label>
+                                                                    </div>
+                                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                        <label class=" control-label   col-lg-8 col-md-8 col-sm-8 col-xs-8 ">￥10</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                            <button type="submit" class="btn blue flr  button-next"> 确认申请 </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" id="tab3">
+                                                    <div class="form-group form-group form-section form-title  padding-top-25">
+                                                        <h3 class="col-lg-8 col-md-8 col-sm-8 col-xs-6 margin-0 ">哈弗H1 2017款 红标 1.5L MT 标准型 </h3>
+                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 form-group">
+                                                            <a href="javascript:;" class="btn green flr button-previous">返回</a>
+                                                        </div>
+                                                    </div>
+                                                    <div style="">
+                                                        <div class="cost-wrap">
+                                                            <h3 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">易鑫金融一证贷 </h3>
+                                                            <div class=" form-group  clearfix">
+                                                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 font-16">
+                                                                </div>
+                                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 font-16">
+                                                                    <p class=" text-center ">总花费</p>
+                                                                    <p class=" text-center ">￥54,500</p>
+                                                                </div>
+                                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 font-16 ">
+                                                                    <p class=" text-center ">贷款额度</p>
+                                                                    <p class=" text-center ">￥54,500</p>
+                                                                </div>
+                                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 font-16">
+                                                                    <p class=" text-center ">月供（36期）</p>
+                                                                    <p class=" text-center ">￥54,500</p>
+                                                                </div>
+                                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 font-16">
+                                                                    <p class=" text-center ">贷款成本</p>
+                                                                    <p class=" text-center ">￥54,500</p>
+                                                                </div>
+                                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 font-16">
+                                                                    <p class=" text-center ">总花费</p>
+                                                                    <p class=" text-center font-red">￥54,500</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label"><span class="required" aria-required="true">* </span>借贷人姓名：</label>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                    <input type="text" class="form-control " placeholder="">
+                                                                    <div class="has-error">
+                                                                        <span class="help-block">请输入借贷人姓名</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label"><span class="required" aria-required="true">* </span>借贷人手机：</label>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                    <input type="text" class="form-control " placeholder="">
+                                                                    <div class="has-error">
+                                                                        <span class="help-block">请输入正确的手机号码</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 padding-0">
+                                                                <a href="javascript:;" class="btn green  ">发送验证码</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label"><span class="required" aria-required="true">* </span>验证码：</label>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                    <input type="text" class="form-control " placeholder="">
+                                                                    <div class="has-error">
+                                                                        <span class="help-block">请输入正确的验证码</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-4 col-xs-6 padding-0">
+                                                                <span class="help-block">未收到验证码短信，请用本机号码拨打400-000-0000收听语音验证码。</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label"><span class="required" aria-required="true">* </span>客户性别：</label>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                <div class="radio-list">
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" name="optionsRadios4" value="option1" checked="checked">男 </label>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" name="optionsRadios4" value="option2">女
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label"><span class="required" aria-required="true">* </span>贷款单来源：</label>
+                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ">
+                                                                <div class="radio-list">
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" name="optionsRadios4" value="option1" checked="checked">贷款+新车 <a href="javascript:;"><i class="fa fa-question-circle"></i></a></label>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" name="optionsRadios4" value="option2"> 仅贷款
+                                                                        <a href="javascript:;"><i class="fa fa-question-circle"></i></a></label>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" name="optionsRadios4" value="option2"> 商家贷款订单
+                                                                        <a href="javascript:;"><i class="fa fa-question-circle"></i></a></label>
+                                                                </div>
+                                                                <div class="has-error">
+                                                                    <span class="help-block">请选择贷款订单类型</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label">车架号VIN：</label>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                    <input type="text" class="form-control " placeholder="">
+                                                                    <div class="has-error">
+                                                                        <span class="help-block">请输入正确的车架号</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label">店内手续费：</label>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                    <input type="text" class="form-control " placeholder="">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 padding-0">
+                                                                <label class="control-label">元</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label"><span class="required" aria-required="true">* </span>成交商家：</label>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                    <select class="form-control ">
+                                                                        <option>1</option>
+                                                                        <option>2</option>
+                                                                    </select>
+                                                                    <div class="has-error">
+                                                                        <span class="help-block">请选择贷款购车成交商家</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 padding-0">
+                                                                <span class="help-block">选择成交商家后提交订单时不可更改</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label">销售顾问：</label>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                    <select class="form-control ">
+                                                                        <option>1</option>
+                                                                        <option>2</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 padding-0">
+                                                                <span class="help-block">商家店内销售顾问，会收到贷款审核关键状态的短信通知</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label"><span class="required" aria-required="true">* </span>金融顾问：</label>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                    <select class="form-control ">
+                                                                        <option>1</option>
+                                                                        <option>2</option>
+                                                                    </select>
+                                                                    <div class="has-error">
+                                                                        <span class="help-block">请选择金融顾问</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 padding-0">
+                                                                <span class="help-block">办理贷款对接的易鑫金融顾问</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                <button type="submit" class="btn blue flr "> 提交订单 </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--  <div class="form-actions" >
+                                                <div class="row">
+                                                    <div class="text-center">
+                                                        <a href="javascript:;" class="btn default button-previous">
+                                                            <i class="m-icon-swapleft"></i> 返回 </a>
+                                                        <a href="javascript:;" class="btn green button-next">
+                                                    下一步 <i class="m-icon-swapright m-icon-white"></i>
+                                                </a>
+                                                        <a href="javascript:;" data-toggle="modal" class="btn green button-submit">
+                                                    创建任务 <i class="m-icon-swapright m-icon-white"></i>
+                                                </a>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END PAGE CONTENT-->
+                </div>
+            </div>
+            <!-- END CONTENT -->
+        </div>
+    </div>
+    <!-- END CONTAINER -->
+    <!-- 弹层 1-->
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">验证错误</h4>
+            </div>
+            <div class="modal-body clearfix">
+                <div class="col-lg-12 col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <p>该客户的贷款订单已放款，请勿重复申请。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn blue" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">广发银行车一贷 </h4>
+            </div>
+            <div class="modal-body  clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  scroll-body">
+                    <form action="#" class="form-horizontal">
+                        <div class="form-body">
+                            <div class="row">
+                                <div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">审批时长：</label>
+                                        <div class="col-md-10">
+                                            <label class="control-label text-left">1-3天</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">还款方式：</label>
+                                        <div class="col-md-10">
+                                            <label class="control-label text-left">等额本息</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">产品特点：</label>
+                                        <div class="col-md-10">
+                                            <label class="control-label text-left">极速审批、资料简便、低首付</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">申请要求：</label>
+                                        <div class="col-md-10">
+                                            <label class="control-label text-left">无职业要求、无信用记录要求、无住房要求、无户籍要求、无工作地要求、无社保要求、无公积金要求</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">申请条件：</label>
+                                        <div class="col-md-10">
+                                            <label class="control-label  text-left">1、年龄25-55周岁 2、信用良好 3、收入稳定 4、借款人需本地户籍或本地房产或本地社保（持续缴费一年）三个条件满足其一。可符合基本申请要求。 5、借款人必须是购车人及车辆权属人 收入要求： 1、北京/上海/广州/深圳：税前月收入不低于4000元 2、其他城市：税前月收入不低于3000元</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">所需材料：</label>
+                                        <div class="col-md-10">
+                                            <label class="control-label  text-left">1、身份类证明（身份证） 2、婚姻类证明（如：结婚证、户口本、婚姻关系证明等） 3、收入类证明（如：近3个月银行流水、收入证明营业执照等） 4、居住类证明（如：房产证或居住证明）</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn blue" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+    <!-- BEGIN FOOTER -->
+    <div class="page-footer">
+        <div class="page-footer-inner">
+            2015 &copy; 易车·惠买车
+        </div>
+        <div class="scroll-to-top">
+            <i class="icon-arrow-up"></i>
+        </div>
+    </div>
+    <!-- END FOOTER -->
+    <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- BEGIN CORE PLUGINS -->
+    <!--[if lt IE 9]>
+<script src="../../assets/global/plugins/respond.min.js"></script>
+<script src="../../assets/global/plugins/excanvas.min.js"></script> 
+<![endif]-->
+    <script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+    <!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+    <script src="../../assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script type="text/javascript" src="../../assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    <script src="../../assets/global/plugins/jstree/dist/jstree.min.js"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <!--新增-->
+    <script type="text/javascript" src="../../assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../assets/global/plugins/select2/select2.min.js"></script>
+    <script src="../../assets/global/scripts/metronic.js" type="text/javascript"></script>
+    <script src="../../assets/admin/pages/scripts/form-wizard.js"></script>
+    <script src="../../assets/admin/pages/scripts/ui-tree.js"></script>
+    <script src="../../assets/global/scripts/metronic.js" type="text/javascript"></script>
+    <script src="../../assets/crm/layout/scripts/layout.js" type="text/javascript"></script>
+    <script src="../../assets/crm/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
+    <script src="../../assets/admin/pages/scripts/components-pickers.js"></script>
+    <!-- // <script src="../../assets/crm/layout/scripts/demo.js" type="text/javascript"></script> -->
+    <script src="../../assets/admin/pages/scripts/components-pickers.js"></script>
+    <script>
+    jQuery(document).ready(function() {
+
+        // initiate layout and plugins
+        FormWizard.init();
+        //调用品牌列表
+        new advanceSelect("brandName", {
+            callback: function(data) {
+                alert(data)
+            }
+        });
+
+        ComponentsPickers.init(); //init 日历
+        $(".js-select2").select2(); //搜索选择
+        Metronic.init(); // init metronic core components
+        Layout.init(); // init current layout
+        ComponentsPickers.init(); //init 日历
+        //TableAdvanced.init();
+
+
+    });
+    </script>
+    <!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+
+</html>

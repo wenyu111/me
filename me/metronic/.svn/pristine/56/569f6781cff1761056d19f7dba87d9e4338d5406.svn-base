@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+    <meta charset="utf-8" />
+    <title>电商CRM - 客户管理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/jstree/dist/themes/default/style.min.css" />
+    <!-- BEGIN THEME STYLES -->
+    <link href="../../assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/crm/layout/css/layout.css" rel="stylesheet" type="text/css" />
+    <link id="style_color" href="../../assets/crm/layout/css/themes/darkblue.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/clockface/css/clockface.css" />
+    <link href="../../assets/crm/layout/css/custom.css" rel="stylesheet" type="text/css" />
+    <!-- END THEME STYLES -->
+    <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
+<!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
+<!-- DOC: Apply "page-sidebar-hide" class to the body to make the sidebar completely hidden on toggle -->
+<!-- DOC: Apply "page-sidebar-closed-hide-logo" class to the body element to make the logo hidden on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-hide" class to body element to completely hide the sidebar on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-fixed" class to have fixed sidebar -->
+<!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
+<!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
+<!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <!-- BEGIN HEADER -->
+    <div class="page-header navbar navbar-fixed-top">
+        <!-- BEGIN HEADER INNER -->
+        <div class="page-header-inner">
+            <!-- BEGIN LOGO -->
+            <div class="page-logo">
+                <a href="index.html">
+                    <img src="../../assets/crm/layout/img/logo.png" alt="logo" class="logo-default" />
+                </a>
+                <div class="menu-toggler sidebar-toggler hide">
+                    <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
+                </div>
+            </div>
+            <!-- END LOGO -->
+            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+            <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+            </a>
+            <!-- END RESPONSIVE MENU TOGGLER -->
+            <!-- BEGIN TOP NAVIGATION MENU -->
+            <div class="top-menu">
+                <ul class="nav navbar-nav pull-right">
+                    <!-- BEGIN USER LOGIN DROPDOWN -->
+                    <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                    <li class="dropdown dropdown-user">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <img alt="" class="img-circle" src="../../assets/crm/layout/img/avatar3_small.jpg" />
+                            <span class="username username-hide-on-mobile">
+                    王艳梅 </span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-default">
+                            <li>
+                                <a href="login.html">
+                                    <i class="icon-key"></i> Log Out </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- END USER LOGIN DROPDOWN -->
+                </ul>
+            </div>
+            <!-- END TOP NAVIGATION MENU -->
+        </div>
+        <!-- END HEADER INNER -->
+    </div>
+    <!-- END HEADER -->
+    <div class="clearfix">
+    </div>
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container zm-wrap">
+        <!-- BEGIN SIDEBAR -->
+        <div class="page-sidebar-wrapper">
+            <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+            <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+            <div class="page-sidebar navbar-collapse collapse">
+                <!-- BEGIN SIDEBAR MENU -->
+                <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+                <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+                <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+                <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+                <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                    <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+                    <li class="sidebar-toggler-wrapper">
+                        <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                        <div class="sidebar-toggler">
+                        </div>
+                        <!-- END SIDEBAR TOGGLER BUTTON -->
+                    </li>
+                    <li class="start">
+                        <a href="javascript:;">
+                            <i class="icon-home"></i>
+                            <span class="title">工作台</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="javascript:;">
+                            <i class="icon-home"></i>
+                            <span class="title">客户管理</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="index.html">
+                                    <i class="icon-bar-chart"></i> 客户详情页
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="icon-puzzle"></i>
+                            <span class="title">业务管理</span>
+                            <span class="arrow "></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" target="_blank">
+                            <i class="icon-paper-plane"></i>
+                            <span class="title">
+                    任务管理 </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" target="_blank">
+                            <i class="icon-paper-plane"></i>
+                            <span class="title">
+                    统计报表 </span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- END SIDEBAR MENU -->
+            </div>
+        </div>
+        <!-- END SIDEBAR -->
+        <!-- BEGIN CONTENT -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <!-- BEGIN PAGE HEADER-->
+                <div class="page-bar">
+                    <ul class="page-breadcrumb">
+                        <li>
+                            <a href="">价格库存管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="#">车型及报价员配置管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="#">编辑车型</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END PAGE HEADER-->
+                <!-- BEGIN PAGE CONTENT-->
+                <!--form static label start-->
+                <div class="row r1">
+                    <form class="form-horizontal" role="form">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                            <label class="col-lg-2 col-md-2 col-sm-4 col-xs-4 control-label">报价城市：</label>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <p class="control-label">北京</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                            <label class="col-lg-2 col-md-2 col-sm-4 col-xs-4 control-label">品牌车型：</label>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <div class="advance-select margin-bottom-10" id="brandName2">
+                                    <span class="form-control">请选择主品牌</span>
+                                    <div class="advance-select-cot">
+                                        <a href="#" class="advance-select-reset" data-obj="{'default':'请选择品牌'}">重置选择</a>
+                                        <address>
+                                            <p>
+                                                <span>A</span>
+                                                <span>B</span>
+                                                <span>C</span>
+                                                <span>D</span>
+                                                <span>F</span>
+                                                <span>G</span>
+                                                <span>H</span>
+                                                <span>J</span>
+                                                <span>K</span>
+                                                <span>L</span>
+                                                <span>M</span>
+                                                <span>N</span>
+                                                <span>O</span>
+                                                <span>P</span>
+                                                <span>Q</span>
+                                                <span>R</span>
+                                                <span>S</span>
+                                                <span>T</span>
+                                                <span>W</span>
+                                                <span>X</span>
+                                                <span>Y</span>
+                                                <span>Z</span>
+                                            </p>
+                                            <em></em>
+                                        </address>
+                                        <ul>
+                                            <li data-obj="{}"><em>A</em>奥迪</li>
+                                            <li data-obj="{}"><em>A</em>奥迪</li>
+                                            <li data-obj="{}"><em>A</em>奥迪</li>
+                                            <li data-obj="{}"><em>A</em>奥迪</li>
+                                            <li data-obj="{}"><em>A</em>奥迪</li>
+                                            <li data-obj="{}"><em>A</em>奥迪</li>
+                                            <li data-obj="{'name':'把'}"><em>B</em>宝马1</li>
+                                            <li data-obj="{}"><em>B</em>宝马</li>
+                                            <li data-obj="{}"><em>B</em>宝马</li>
+                                            <li data-obj="{}"><em>B</em>宝马</li>
+                                            <li data-obj="{}"><em>B</em>宝马</li>
+                                            <li data-obj="{}"><em>B</em>宝马</li>
+                                            <li data-obj="{}"><em>C</em>长安</li>
+                                            <li data-obj="{}"><em>C</em>长安</li>
+                                            <li data-obj="{}"><em>C</em>长安</li>
+                                            <li data-obj="{}"><em>C</em>长安</li>
+                                            <li data-obj="{}"><em>C</em>长安</li>
+                                            <li data-obj="{}"><em>C</em>长安</li>
+                                            <li data-obj="{}"><em>C</em>长安</li>
+                                            <li data-obj="{}"><em>C</em>长安</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <select class="form-control ">
+                                    <option value="0">请选择品牌车型</option>
+                                    <optgroup label="一汽奥迪" style="font-style: normal; text-align: center; background: rgb(239, 239, 239);"></optgroup>
+                                    <option value="2573">奥迪A6L</option>
+                                    <option value="2593">奥迪A4L</option>
+                                    <option value="2855">奥迪Q5</option>
+                                    <option value="3395">奥迪Q3</option>
+                                    <option value="3999">奥迪A3</option>
+                                    <optgroup label="一汽奥迪" style="font-style: normal; text-align: center; background: rgb(239, 239, 239);"></optgroup>
+                                    <option value="2573">奥迪A6L</option>
+                                    <option value="2593">奥迪A4L</option>
+                                    <option value="2855">奥迪Q5</option>
+                                    <option value="3395">奥迪Q3</option>
+                                    <option value="3999">奥迪A3</option>
+                                    <optgroup label="一汽奥迪" style="font-style: normal; text-align: center; background: rgb(239, 239, 239);"></optgroup>
+                                    <option value="2573">奥迪A6L</option>
+                                    <option value="2593">奥迪A4L</option>
+                                    <option value="2855">奥迪Q5</option>
+                                    <option value="3395">奥迪Q3</option>
+                                    <option value="3999">奥迪A3</option>
+                                </select>
+                                <div class=" has-error">
+                                    <span class=" help-block text-left ">请选择车型品牌！</span>
+                                </div>
+                                <select class="form-control ">
+                                    <option value="0">请选择车款（非必填）</option>
+                                    <option value="2573">奥迪A6L</option>
+                                    <option value="2593">奥迪A4L</option>
+                                    <option value="2855">奥迪Q5</option>
+                                    <option value="3395">奥迪Q3</option>
+                                    <option value="3999">奥迪A3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                            <label class="col-lg-2 col-md-2 col-sm-4 col-xs-4 control-label">报价商家：</label>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <select class="form-control">
+                                    <option value="无">请选择经销商</option>
+                                    <option value="">马龙</option>
+                                    <option value="">杨业</option>
+                                    <option value="">广州</option>
+                                    <option value="">深圳</option>
+                                </select>
+                                <div class=" has-error">
+                                    <span class=" help-block text-left ">请选择须报价商家！</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                            <label class="col-lg-2 col-md-2 col-sm-4 col-xs-4 control-label">价格有效期：</label>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <div class="date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                    <input type="text" class="form-control" name="from">
+                                </div>
+                                <div class=" has-error">
+                                    <span class=" help-block text-left ">请设定价格有效期！</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                            <label class="col-lg-2 col-md-2 col-sm-4 col-xs-4 control-label">选择车款：</label>
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-bordered table-striped margin-0">
+                                        <thead>
+                                            <tr>
+                                                <th width="50">
+                                                    <div class="checkbox-list">
+                                                        <label class="checkbox-inline">
+                                                            <input type="checkbox">
+                                                        </label>
+                                                    </div>
+                                                </th>
+                                                <th>在售车款</th>
+                                                <th>厂商指导价</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="checkbox-list">
+                                                        <label class="checkbox-inline">
+                                                            <input type="checkbox">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>2016款 1.6L 手动 GL-i炫酷版</td>
+                                                <td>10.28万</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checkbox-list">
+                                                        <label class="checkbox-inline">
+                                                            <input type="checkbox">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>2016款 1.6L CVT GL-i炫酷版</td>
+                                                <td>11.28万</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checkbox-list">
+                                                        <label class="checkbox-inline">
+                                                            <input type="checkbox">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>2016款 1.6L CVT GL-i炫酷版</td>
+                                                <td>11.28万</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checkbox-list">
+                                                        <label class="checkbox-inline">
+                                                            <input type="checkbox">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>2016款 1.6L CVT GL-i炫酷版</td>
+                                                <td>11.28万</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checkbox-list">
+                                                        <label class="checkbox-inline">
+                                                            <input type="checkbox">
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>2016款 1.6L CVT GL-i炫酷版</td>
+                                                <td>11.28万</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class=" has-error">
+                                    <span class=" help-block text-left ">请选择须报价的车款！</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10 ">
+                            <label class="col-lg-2 col-md-2 col-sm-4 col-xs-4 control-label">颜色及售价：</label>
+                            <div class="col-lg-10 col-md-10 col-sm-8 col-xs-8 padding-0 name-list-padding">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <span class="control-label">店内售卖颜色</span>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <label class="checkbox-inline col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
+                                        <div class="checker"><span><input type="checkbox" value="option1"></span></div>全部
+                                    </label>
+                                    <div class=" has-error  col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+                                        <span class=" help-block text-left ">请设定价格有效期！</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <label class="checkbox-inline">
+                                        <div class="checker"><span><input type="checkbox" value="option2"></span></div>板岩灰
+                                    </label>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <label class="checkbox-inline">
+                                        <div class="checker"><span><input type="checkbox" value="option3"></span></div>糖果白
+                                    </label>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <label class="checkbox-inline">
+                                        <div class="checker"><span><input type="checkbox" value="option4"></span></div>甜蜜金
+                                    </label>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <label class="checkbox-inline">
+                                        <div class="checker"><span><input type="checkbox" value="option1"></span></div>玛雅红
+                                    </label>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <label class="checkbox-inline">
+                                        <div class="checker"><span><input type="checkbox" value="option2"></span></div>珊瑚蓝
+                                    </label>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <label class="checkbox-inline">
+                                        <div class="checker"><span><input type="checkbox" value="option3"></span></div>板岩灰
+                                    </label>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <label class="checkbox-inline">
+                                        <div class="checker"><span><input type="checkbox" value="option4"></span></div>山光银
+                                    </label>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <label class="checkbox-inline">
+                                        <div class="checker"><span><input type="checkbox" value="option3"></span></div>深黑
+                                    </label>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <label class="checkbox-inline">
+                                        <div class="checker"><span><input type="checkbox" value="option4"></span></div>王五王五
+                                    </label>
+                                </div>
+                                <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="table-scrollable ">
+                                        <table class="table table-bordered table-hover re-td">
+                                            <thead>
+                                                <tr>
+                                                    <th >
+                                                         外观颜色
+                                                    </th >
+                                                    <th >
+                                                        全款优惠
+                                                    </th>
+                                                    <th >
+                                                        置换再优惠</th>
+                                                    <th>
+                                                        贷款再优惠 </th>
+                                                    <th>
+                                                        订车周期
+                                                    </th>
+                                                    <th>
+                                                        优惠备注说明 </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div class="radio-list">
+                                                            <label>
+                                                                <input type="radio" name="toasts" value="success" checked/>  <span>点</span><input type="text" class="price-form-control" placeholder="客户姓名"></label>
+                                                            <label>
+                                                                <input type="radio" name="toasts" value="info" />点</label>
+                                                            <label>
+                                                                <input type="radio" name="toasts" value="warning" />Warning </label>
+                                                            <label>
+                                                                <input type="radio" name="toasts" value="error" />Error </label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                       <div class="radio-list">
+                                                            <label>
+                                                                <input type="radio" name="toasts" value="success" checked/>  <span>点</span><input type="text" class="price-form-control" placeholder="客户姓名"></label>
+                                                            <label>
+                                                                <input type="radio" name="toasts" value="info" />点</label>
+                                                            <label>
+                                                                <input type="radio" name="toasts" value="warning" />Warning </label>
+                                                            <label>
+                                                                <input type="radio" name="toasts" value="error" />Error </label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" placeholder="手机号">
+                                                    </td>
+                                                    <td>
+                                                        <select class="js-select2 form-control">
+                                                            <option value="购车城市">购车城市</option>
+                                                            <option value="北京">北京</option>
+                                                            <option value="上海">上海</option>
+                                                            <option value="杭州">杭州</option>
+                                                            <option value="郑州">郑州</option>
+                                                        </select>
+                                                        <i class="fa fa-arrow-circle-down fa-right"></i>
+                                                    </td>
+                                                    <td>
+                                                        <select class="js-select2 form-control ">
+                                                            <option value="上牌城市">上牌城市</option>
+                                                            <option value="上海">上海</option>
+                                                            <option value="杭州">杭州</option>
+                                                            <option value="郑州">郑州</option>
+                                                        </select>
+                                                        <i class="fa fa-arrow-circle-down fa-right"></i>
+                                                    </td>
+                                                    <td>
+                                                        <select class="js-select2 form-control ">
+                                                            <option value="意向品牌">意向品牌</option>
+                                                            <option value="奥迪">奥迪</option>
+                                                            <option value="宝马">宝马</option>
+                                                            <option value="长安">长安</option>
+                                                            <option value="巴拉">巴拉</option>
+                                                        </select>
+                                                        <i class="fa fa-arrow-circle-down fa-right"></i>
+                                                    </td>
+                                                    <td>
+                                                        <select class="select2-Models form-control">
+                                                            <option>奥迪A3</option>
+                                                            <option>奥迪A4L</option>
+                                                            <option>奥迪A6L</option>
+                                                            <option>奥迪A8L</option>
+                                                            <option>奥迪Q7</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="vertical-align: middle;text-align: center">
+                                                        2
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" placeholder="客户姓名">
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" placeholder="手机号">
+                                                    </td>
+                                                    <td>
+                                                        <select class="js-select2 form-control input-small">
+                                                            <option value="购车城市">购车城市</option>
+                                                            <option value="北京">北京</option>
+                                                            <option value="上海">上海</option>
+                                                            <option value="杭州">杭州</option>
+                                                            <option value="郑州">郑州</option>
+                                                        </select>
+                                                        <i class="fa fa-arrow-circle-down fa-right"></i>
+                                                    </td>
+                                                    <td>
+                                                        <select class="js-select2 form-control input-small">
+                                                            <option value="上牌城市">上牌城市</option>
+                                                            <option value="上海">上海</option>
+                                                            <option value="杭州">杭州</option>
+                                                            <option value="郑州">郑州</option>
+                                                        </select>
+                                                        <i class="fa fa-arrow-circle-down fa-right"></i>
+                                                    </td>
+                                                    <td>
+                                                        <select class="js-select2 form-control input-small">
+                                                        </select>
+                                                        <i class="fa fa-arrow-circle-down fa-right"></i>
+                                                    </td>
+                                                    <td>
+                                                        <select class="select2-Models form-control">
+                                                            <option>奥迪A3</option>
+                                                            <option>奥迪A4L</option>
+                                                            <option>奥迪A6L</option>
+                                                            <option>奥迪A8L</option>
+                                                            <option>奥迪Q7</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                            <label class="col-lg-2 col-md-2 col-sm-4 col-xs-4 control-label">电销顾问：</label>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <select class="form-control">
+                                    <option value="无">请选择</option>
+                                    <option value="">马龙</option>
+                                    <option value="">杨业</option>
+                                    <option value="">广州</option>
+                                    <option value="">深圳</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <button type="submit" class="btn green flr col-lg-2 col-md-2 col-sm-2 col-xs-2"> 确定 </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- END PAGE CONTENT-->
+            </div>
+        </div>
+        <!-- END CONTENT -->
+    </div>
+    <!-- END CONTAINER -->
+    <!-- BEGIN FOOTER -->
+    <div class="page-footer">
+        <div class="page-footer-inner">
+            2015 &copy; 易车·惠买车
+        </div>
+        <div class="scroll-to-top">
+            <i class="icon-arrow-up"></i>
+        </div>
+    </div>
+    <!-- END FOOTER -->
+    <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- BEGIN CORE PLUGINS -->
+    <!--[if lt IE 9]>
+<script src="../../assets/global/plugins/respond.min.js"></script>
+<script src="../../assets/global/plugins/excanvas.min.js"></script> 
+<![endif]-->
+    <script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+    <!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+    <script src="../../assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <!-- END CORE PLUGINS -->
+    <script src="../../assets/global/plugins/jstree/dist/jstree.min.js"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script src="../../assets/admin/pages/scripts/ui-tree.js"></script>
+    <script src="../../assets/global/scripts/metronic.js" type="text/javascript"></script>
+    <script src="../../assets/crm/layout/scripts/layout.js" type="text/javascript"></script>
+    <script src="../../assets/crm/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
+    <script src="../../assets/crm/layout/scripts/demo.js" type="text/javascript"></script>
+    <script src="../../assets/admin/pages/scripts/components-pickers.js"></script>
+    <script type="text/javascript" src="../../assets/global/plugins/clockface/js/clockface.js"></script>
+    <script type="text/javascript" src="../../assets/global/plugins/select2/select2.min.js"></script>
+    <script>
+    jQuery(document).ready(function() {
+        Metronic.init(); // init metronic core components
+        Layout.init(); // init current layout
+        ComponentsPickers.init(); //init 日历
+        //调用品牌列表
+        new advanceSelect("brandName", {
+            callback: function(data) {
+                alert(data)
+            }
+        });
+        new advanceSelect("brandName2", {
+            callback: function(data) {
+                alert(data)
+            }
+        });
+        new advanceSelect("brandName3", {
+            callback: function(data) {
+                alert(data)
+            }
+        });
+    });
+    </script>
+    <!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+
+</html>

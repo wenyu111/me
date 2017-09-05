@@ -1,0 +1,1993 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+    <meta charset="utf-8" />
+    <title>电商CRM - 线索管理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/jstree/dist/themes/default/style.min.css" />
+    <!-- END PAGE LEVEL STYLES -->
+    <!--新增。20160722.yangjie5 -->
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/select2/select2.css" />
+    <!-- BEGIN THEME STYLES -->
+    <link href="../../assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/crm/layout/css/layout.css" rel="stylesheet" type="text/css" />
+    <link id="style_color" href="../../assets/crm/layout/css/themes/darkblue.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/crm/layout/css/custom.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/clockface/css/clockface.css" />
+    <!-- END THEME STYLES -->
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
+<!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
+<!-- DOC: Apply "page-sidebar-hide" class to the body to make the sidebar completely hidden on toggle -->
+<!-- DOC: Apply "page-sidebar-closed-hide-logo" class to the body element to make the logo hidden on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-hide" class to body element to completely hide the sidebar on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-fixed" class to have fixed sidebar -->
+<!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
+<!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
+<!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <!-- BEGIN HEADER -->
+    <div class="page-header navbar navbar-fixed-top">
+        <!-- BEGIN HEADER INNER -->
+        <div class="page-header-inner">
+            <!-- BEGIN LOGO -->
+            <div class="page-logo">
+                <a href="index.html">
+                    <img src="../../assets/crm/layout/img/logo.png" alt="logo" class="logo-default" />
+                </a>
+                <div class="menu-toggler sidebar-toggler hide">
+                    <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
+                </div>
+            </div>
+            <!-- END LOGO -->
+            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+            <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+            </a>
+            <!-- END RESPONSIVE MENU TOGGLER -->
+            <!-- BEGIN TOP NAVIGATION MENU -->
+            <div class="top-menu">
+                <ul class="nav navbar-nav pull-right">
+                    <!-- BEGIN USER LOGIN DROPDOWN -->
+                    <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                    <li class="dropdown dropdown-user">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <img alt="" class="img-circle" src="../../assets/crm/layout/img/avatar3_small.jpg" />
+                            <span class="username username-hide-on-mobile">
+                    王艳梅 </span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-default">
+                            <li>
+                                <a href="login.html">
+                                    <i class="icon-key"></i> Log Out </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- END USER LOGIN DROPDOWN -->
+                </ul>
+            </div>
+            <!-- END TOP NAVIGATION MENU -->
+        </div>
+        <!-- END HEADER INNER -->
+    </div>
+    <!-- END HEADER -->
+    <div class="clearfix">
+    </div>
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+        <!-- BEGIN SIDEBAR -->
+        <div class="page-sidebar-wrapper">
+            <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+            <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+            <div class="page-sidebar navbar-collapse collapse">
+                <!-- BEGIN SIDEBAR MENU -->
+                <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+                <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+                <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+                <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+                <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                    <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+                    <li class="sidebar-toggler-wrapper">
+                        <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                        <div class="sidebar-toggler">
+                        </div>
+                        <!-- END SIDEBAR TOGGLER BUTTON -->
+                    </li>
+                    <li class="start">
+                        <a href="javascript:;">
+                            <i class="icon-home"></i>
+                            <span class="title">工作台</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="javascript:;">
+                            <i class="icon-home"></i>
+                            <span class="title">客户管理</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="index.html">
+                                    <i class="icon-bar-chart"></i> 客户详情页
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="icon-puzzle"></i>
+                            <span class="title">业务管理</span>
+                            <span class="arrow "></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" target="_blank">
+                            <i class="icon-paper-plane"></i>
+                            <span class="title">
+                    任务管理 </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" target="_blank">
+                            <i class="icon-paper-plane"></i>
+                            <span class="title">
+                    统计报表 </span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- END SIDEBAR MENU -->
+            </div>
+        </div>
+        <!-- END SIDEBAR -->
+        <!-- BEGIN CONTENT -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <!-- BEGIN PAGE HEADER-->
+                <h3 class="page-title">
+                订单管理
+            </h3>
+                <div class="page-bar">
+                    <ul class="page-breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="index.html">首页</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="#">订单管理</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END PAGE HEADER-->
+                <!-- BEGIN PAGE CONTENT-->
+                <div class="tabbable tabbable-tabdrop">
+                    <ul class="nav nav-tabs">
+                        <li>
+                            <a href="#tab1" data-toggle="tab">全部新车订单</a>
+                        </li>
+                        <li class="">
+                            <a href="#tab2" data-toggle="tab">成交订单</a>
+                        </li>
+                        <li>
+                            <a href="#tab6" data-toggle="tab">贷款订单</a>
+                        </li>
+                        <li>
+                            <a href="#tab5" data-toggle="tab">置换订单</a>
+                        </li>
+                        <li class="active">
+                            <a href="#tab7" data-toggle="tab">保险订单</a>
+                        </li>
+                        <li>
+                            <a href="#tab8" data-toggle="tab">精品订单</a>
+                        </li>
+                        <li>
+                            <a href="#tab9" data-toggle="tab">验车订单</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane" id="tab1">
+                            <div class="row">
+                                <div class="form-horizontal">
+                                    <div class="col-md-12">
+                                        <div class="c-search">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">客户姓名：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="请输入客户姓名">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">客户手机：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="请输入客户手机">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">订单编号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="请输入订单编号">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">媒体单号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="请输入媒体单号">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">订单状态：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">订单车型：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <div class="advance-select" id="brandName">
+                                                        <span class="form-control">品牌</span>
+                                                        <div class="advance-select-cot">
+                                                            <a href="#" class="advance-select-reset" data-obj="{'default':'请选择品牌'}">重置选择</a>
+                                                            <address>
+                                                                <p>
+                                                                    <span>A</span>
+                                                                    <span>B</span>
+                                                                    <span>C</span>
+                                                                    <span>D</span>
+                                                                    <span>F</span>
+                                                                    <span>G</span>
+                                                                    <span>H</span>
+                                                                    <span>J</span>
+                                                                    <span>K</span>
+                                                                    <span>L</span>
+                                                                    <span>M</span>
+                                                                    <span>N</span>
+                                                                    <span>O</span>
+                                                                    <span>P</span>
+                                                                    <span>Q</span>
+                                                                    <span>R</span>
+                                                                    <span>S</span>
+                                                                    <span>T</span>
+                                                                    <span>W</span>
+                                                                    <span>X</span>
+                                                                    <span>Y</span>
+                                                                    <span>Z</span>
+                                                                </p>
+                                                                <em></em>
+                                                            </address>
+                                                            <ul>
+                                                                <li data-obj="{}"><em>A</em>奥迪</li>
+                                                                <li data-obj="{}"><em>A</em>奥迪</li>
+                                                                <li data-obj="{}"><em>A</em>奥迪</li>
+                                                                <li data-obj="{}"><em>A</em>奥迪</li>
+                                                                <li data-obj="{}"><em>A</em>奥迪</li>
+                                                                <li data-obj="{}"><em>A</em>奥迪</li>
+                                                                <li data-obj="{'name':'把'}"><em>B</em>宝马1</li>
+                                                                <li data-obj="{}"><em>B</em>宝马</li>
+                                                                <li data-obj="{}"><em>B</em>宝马</li>
+                                                                <li data-obj="{}"><em>B</em>宝马</li>
+                                                                <li data-obj="{}"><em>B</em>宝马</li>
+                                                                <li data-obj="{}"><em>B</em>宝马</li>
+                                                                <li data-obj="{}"><em>C</em>长安</li>
+                                                                <li data-obj="{}"><em>C</em>长安</li>
+                                                                <li data-obj="{}"><em>C</em>长安</li>
+                                                                <li data-obj="{}"><em>C</em>长安</li>
+                                                                <li data-obj="{}"><em>C</em>长安</li>
+                                                                <li data-obj="{}"><em>C</em>长安</li>
+                                                                <li data-obj="{}"><em>C</em>长安</li>
+                                                                <li data-obj="{}"><em>C</em>长安</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <optgroup label="一汽奥迪">
+                                                            <option>奥迪A3</option>
+                                                            <option>奥迪A4L</option>
+                                                            <option>奥迪A6L</option>
+                                                            <option>奥迪A8L</option>
+                                                        </optgroup>
+                                                        <optgroup label="奥迪">
+                                                            <option>奥迪Q7</option>
+                                                        </optgroup>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">订单来源：</label>
+                                                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-8">
+                                                    <select class="form-control">
+                                                        <option>请选择订单来源</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">下单时间： </label>
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-8">
+                                                    <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                                        <input type="text" class="form-control" name="from">
+                                                        <span class="input-group-addon">to </span>
+                                                        <input type="text" class="form-control" name="to">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <button type="submit" class="btn green"> 查询</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 padding-top-25">
+                                    <div class="crm-page">共1321条</div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 padding-top-25">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-bordered table-striped margin-0">
+                                            <thead>
+                                                <tr>
+                                                    <th style="white-space: nowrap;">订单ID</th>
+                                                    <th style="white-space: nowrap;">客户姓名|手机</th>
+                                                    <th style="white-space: nowrap;">订单类型</th>
+                                                    <th style="white-space: nowrap;">订单来源</th>
+                                                    <th style="white-space: nowrap;">订单状态</th>
+                                                    <th style="white-space: nowrap;">订单品牌</th>
+                                                    <th style="white-space: nowrap; min-width: 200px;">车型车款</th>
+                                                    <th style="white-space: nowrap;">下单时间</th>
+                                                    <th style="white-space: nowrap;min-width: 110px;">操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1345</td>
+                                                    <td>张生
+                                                        <br><a href="#">185****1234</a></td>
+                                                    <td>竞价订单</td>
+                                                    <td>京东</td>
+                                                    <td>已成交</td>
+                                                    <td>上汽通用别克</td>
+                                                    <td>2015款 君威2.0L 自动领先时尚型</td>
+                                                    <td>2015/6/18
+                                                        <br>20:55:47</td>
+                                                    <td>
+                                                        <a href="#">详情</a><br/>
+                                                         <a href="#" class="disabled">随手礼</a>
+                                                        <br/><a href="#">查看金融产品</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1345</td>
+                                                    <td>张生
+                                                        <br><a href="#">185****1234</a></td>
+                                                    <td>竞价订单</td>
+                                                    <td>京东</td>
+                                                    <td>已成交</td>
+                                                    <td>上汽通用别克</td>
+                                                    <td>2015款 君威2.0L 自动领先时尚型</td>
+                                                    <td>2015/6/18
+                                                        <br>20:55:47</td>
+                                                    <td>
+                                                        <a href="#">详情</a>
+                                                        <br/><a href="#">随手礼</a>
+                                                        <br/><a href="#">查看金融产品</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1345</td>
+                                                    <td>张生
+                                                        <br><a href="#">185****1234</a></td>
+                                                    <td>竞价订单</td>
+                                                    <td>京东</td>
+                                                    <td>已成交</td>
+                                                    <td>上汽通用别克</td>
+                                                    <td>2015款 君威2.0L 自动领先时尚型</td>
+                                                    <td>2015/6/18
+                                                        <br>20:55:47</td>
+                                                    <td>
+                                                        <a href="#">详情</a>
+                                                        <br/> <a href="#">随手礼</a>
+                                                        <br/><a href="#">查看金融产品</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- 分页 BEGIN -->
+                                    <div class="pages">
+                                        <div id="anp" class="paginator">
+                                            <a disabled="disabled" style="margin-right:5px;">首页</a><a disabled="disabled" style="margin-right:5px;">
+                                        &lt;&lt;上一页</a><span class="cpb" style="margin-right:5px;">1</span><a href="javascript:__doPostBack('anp','2')" class="paginator" style="margin-right:5px;">2</a><a class="paginator" href="javascript:__doPostBack('anp','2')" style="margin-right:5px;">下一页&gt;&gt;</a><a class="paginator" href="javascript:__doPostBack('anp','2')" style="margin-right:5px;">末页</a>
+                                        </div>
+                                    </div>
+                                    <!-- 分页 END -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane " id="tab2">
+                            <div class="row">
+                                <div class="form-horizontal" role="form">
+                                    <div class="col-md-12">
+                                        <div class="c-search">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">订单编号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label" style="white-space: nowrap;">客户编号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">客户姓名：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label" style="white-space: nowrap;">客户手机号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">订单类型：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">订单来源：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">订单品牌：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control js-select2">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">订单车型：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <!-- <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">信息状态：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>全部</option>
+                                                        <option>未填写</option>
+                                                        <option>已保存</option>
+                                                        <option>已提交</option>
+                                                        <option>被驳回</option>
+                                                        <option>已通过</option>
+                                                    </select>
+                                                </div> -->
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label" style="white-space: nowrap;">车主姓名：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">购车城市：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">买顾城市：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control js-select2">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">成交状态：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control js-select2">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">商家确认状态：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control ">
+                                                        <option>全部</option>
+                                                        <option>未填写</option>
+                                                        <option>已保存</option>
+                                                        <option>已提交</option>
+                                                        <option>被驳回</option>
+                                                        <option>已通过</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-1 col-xs-4 control-label">商家确认时间： </label>
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                                        <input type="text" class="form-control" name="from">
+                                                        <span class="input-group-addon">to </span>
+                                                        <input type="text" class="form-control" name="to">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">信息状态：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control ">
+                                                        <option>全部</option>
+                                                        <option>未填写</option>
+                                                        <option>已保存</option>
+                                                        <option>已提交</option>
+                                                        <option>被驳回</option>
+                                                        <option>已通过</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-1 col-xs-4 control-label">信息提交时间： </label>
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                                        <input type="text" class="form-control" name="from">
+                                                        <span class="input-group-addon">to </span>
+                                                        <input type="text" class="form-control" name="to">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <button type="submit" class="btn green flr"> 查询</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 padding-top-25">
+                                    <div class="crm-page">共1321条</div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 padding-top-25">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-bordered table-striped margin-0">
+                                            <thead>
+                                                <tr>
+                                                    <th style="white-space: nowrap;">订单编号</th>
+                                                    <th style="white-space: nowrap;"> 客户信息</th>
+                                                    <th style="white-space: nowrap;">车主姓名</th>
+                                                    <th style="white-space: nowrap;">订单类型</th>
+                                                    <th style="white-space: nowrap;">订单来源</th>
+                                                    <th style="white-space: nowrap;">经销商全称</th>
+                                                    <th style="white-space: nowrap;min-width: 200px;">成交车款</th>
+                                                    <th style="white-space: nowrap;">成交状态</th>
+                                                    <th style="white-space: nowrap;">商家确认状态</th>
+                                                    <th style="white-space: nowrap;min-width: 85px;">确认时间</th>
+                                                    <th style="white-space: nowrap;">买顾姓名</th>
+                                                    <th style="white-space: nowrap;">成交信息</th>
+                                                    <th style="white-space: nowrap;min-width: 85px;">提交时间</th>
+                                                    <th style="white-space: nowrap;min-width: 110px;">操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td>张三的歌
+                                                        <br><a href="#">185****1234</a></td>
+                                                    <td>张四</td>
+                                                    <td>C2B</td>
+                                                    <td>惠买车</td>
+                                                    <td>皮卡丘皮卡丘经销商</td>
+                                                    <td>北京现代 朗动 2016款 1.6L 自动 智能型</td>
+                                                    <td>已成交</td>
+                                                    <td>商家已确认</td>
+                                                    <td>2015-11-05
+                                                        <br>17:26</td>
+                                                    <td>孙悟空</td>
+                                                    <td>已填写</td>
+                                                    <td>2016/07/15</td>
+                                                    <td>
+                                                        <a href="#">查看成交信息</a>
+                                                        <br>
+                                                        <a href="#">衍生业务信息</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td>张三的歌
+                                                        <br><a href="#">185****1234</a></td>
+                                                    <td>张四</td>
+                                                    <td>C2B</td>
+                                                    <td>惠买车</td>
+                                                    <td>皮卡丘皮卡丘经销商</td>
+                                                    <td>北京现代 朗动 2016款 1.6L 自动 智能型</td>
+                                                    <td>已成交</td>
+                                                    <td>商家已确认</td>
+                                                    <td>2015-11-05
+                                                        <br>17:26</td>
+                                                    <td>孙悟空</td>
+                                                    <td>已填写</td>
+                                                    <td>2016/07/15</td>
+                                                    <td>
+                                                        <a href="#">查看成交信息</a>
+                                                        <br>
+                                                        <a href="#">衍生业务信息</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td>张三的歌
+                                                        <br><a href="#">185****1234</a></td>
+                                                    <td>张四</td>
+                                                    <td>C2B</td>
+                                                    <td>惠买车</td>
+                                                    <td>皮卡丘皮卡丘经销商</td>
+                                                    <td>北京现代 朗动 2016款 1.6L 自动 智能型</td>
+                                                    <td>已成交</td>
+                                                    <td>商家已确认</td>
+                                                    <td>2015-11-05
+                                                        <br>17:26</td>
+                                                    <td>孙悟空</td>
+                                                    <td>已填写</td>
+                                                    <td>2016/07/15</td>
+                                                    <td>
+                                                        <a href="#">查看成交信息</a>
+                                                        <br>
+                                                        <a href="#">衍生业务信息</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- 分页 BEGIN -->
+                                    <div class="pages">
+                                        <div id="anp" class="paginator">
+                                            <a disabled="disabled" style="margin-right:5px;">首页</a><a disabled="disabled" style="margin-right:5px;">
+                                        &lt;&lt;上一页</a><span class="cpb" style="margin-right:5px;">1</span><a href="javascript:__doPostBack('anp','2')" class="paginator" style="margin-right:5px;">2</a><a class="paginator" href="javascript:__doPostBack('anp','2')" style="margin-right:5px;">下一页&gt;&gt;</a><a class="paginator" href="javascript:__doPostBack('anp','2')" style="margin-right:5px;">末页</a>
+                                        </div>
+                                    </div>
+                                    <!-- 分页 END -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane  clearfix" id="tab5">
+                            <div class="row">
+                                <div class="form-horizontal" role="form">
+                                    <div class="col-md-12">
+                                        <div class="c-search">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">订单编号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label" style="white-space: nowrap;">订单状态：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label" style="white-space: nowrap;">订单品牌：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label" style="white-space: nowrap;">订单车型：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">客户编号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">客户手机号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">联系人姓名：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">联系人手机：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">置换平台：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">买顾区域：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">买顾城市：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">买车顾问：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control ">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">合作公司：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-1 col-xs-4 control-label">下单时间： </label>
+                                                <div class="col-lg-4 col-md-5 col-sm-4 col-xs-4">
+                                                    <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                                        <input type="text" class="form-control" name="from">
+                                                        <span class="input-group-addon">to </span>
+                                                        <input type="text" class="form-control" name="to">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 margin-bottom-10">
+                                                    <button type="submit" class="btn  default col-lg-2 col-md-2 col-sm-2 col-xs-2">本月</button>
+                                                    <button type="submit" class="btn default  col-lg-2 col-md-2 col-sm-2 col-xs-2"> 上月 </button>
+                                                    <button type="submit" class="btn default col-lg-3 col-md-3 col-sm-3 col-xs-3">本季度</button>
+                                                    <button type="submit" class="btn default col-lg-3 col-md-3 col-sm-3 col-xs-3">上季度</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 flr">
+                                                    <button type="submit" class="btn green flr"> 查询</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 padding-top-25">
+                                    <div class="crm-page">共1321条</div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 padding-top-25">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-bordered table-striped margin-0">
+                                            <thead>
+                                                <tr>
+                                                    <th style="white-space: nowrap;">订单编号</th>
+                                                    <th style="white-space: nowrap;">客户编号</th>
+                                                    <th style="white-space: nowrap;">置换联系人</th>
+                                                    <th style="white-space: nowrap;min-width: 85px;">下单时间</th>
+                                                    <th style="white-space: nowrap;">订单状态</th>
+                                                    <th style="white-space: nowrap;min-width: 85px;">更新时间</th>
+                                                    <th style="white-space: nowrap;min-width: 200px;">出售车辆信息</th>
+                                                    <th style="white-space: nowrap;">牌照号</th>
+                                                    <th style="white-space: nowrap;">验车城市</th>
+                                                    <th style="white-space: nowrap;">检测报告</th>
+                                                    <th style="white-space: nowrap;">置换平台</th>
+                                                    <th style="white-space: nowrap;">合作公司</th>
+                                                    <th style="white-space: nowrap;">买车顾问</th>
+                                                    <th style="white-space: nowrap;min-width: 110px;">操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td>张三的歌
+                                                        <br>185****1234</td>
+                                                    <td>2016/07/09
+                                                        <br>17:04:27</td>
+                                                    <td>已交车</td>
+                                                    <td>2016/07/09
+                                                        <br>17:04:27</td>
+                                                    <td>北京现代 朗动 2016款 1.6L 自动 智能型</td>
+                                                    <td>京J·ABC66</td>
+                                                    <td>北京</td>
+                                                    <td>
+                                                        <a href="#">查看</a>
+                                                    </td>
+                                                    <td>天天拍车</td>
+                                                    <td>天天拍车</td>
+                                                    <td>关羽</td>
+                                                    <td>
+                                                        <a href="#">查看</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td>张三的歌
+                                                        <br>185****1234</td>
+                                                    <td>2016/07/09
+                                                        <br>17:04:27</td>
+                                                    <td>已交车</td>
+                                                    <td>2016/07/09
+                                                        <br>17:04:27</td>
+                                                    <td>北京现代 朗动 2016款 1.6L 自动 智能型</td>
+                                                    <td>京J·ABC66</td>
+                                                    <td>北京</td>
+                                                    <td>
+                                                        <a href="#">查看</a>
+                                                    </td>
+                                                    <td>天天拍车</td>
+                                                    <td>天天拍车</td>
+                                                    <td>关羽</td>
+                                                    <td>
+                                                        <a href="#">查看</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td>张三的歌
+                                                        <br>185****1234</td>
+                                                    <td>2016/07/09
+                                                        <br>17:04:27</td>
+                                                    <td>已交车</td>
+                                                    <td>2016/07/09
+                                                        <br>17:04:27</td>
+                                                    <td>北京现代 朗动 2016款 1.6L 自动 智能型</td>
+                                                    <td>京J·ABC66</td>
+                                                    <td>北京</td>
+                                                    <td>
+                                                        <a href="#">查看</a>
+                                                    </td>
+                                                    <td>天天拍车</td>
+                                                    <td>天天拍车</td>
+                                                    <td>关羽</td>
+                                                    <td>
+                                                        <a href="#">查看</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- 分页 BEGIN -->
+                                    <div class="pages">
+                                        <div id="anp" class="paginator">
+                                            <a disabled="disabled" style="margin-right:5px;">首页</a><a disabled="disabled" style="margin-right:5px;">
+                                        &lt;&lt;上一页</a><span class="cpb" style="margin-right:5px;">1</span><a href="javascript:__doPostBack('anp','2')" class="paginator" style="margin-right:5px;">2</a><a class="paginator" href="javascript:__doPostBack('anp','2')" style="margin-right:5px;">下一页&gt;&gt;</a><a class="paginator" href="javascript:__doPostBack('anp','2')" style="margin-right:5px;">末页</a>
+                                        </div>
+                                    </div>
+                                    <!-- 分页 END -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane  clearfix" id="tab6">
+                            <div class="row">
+                                <div class="form-horizontal" role="form">
+                                    <div class="col-md-12">
+                                        <div class="c-search">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">订单编号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">客户编号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">客户姓名：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">客户手机号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">借贷人姓名：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">借贷人手机：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label" style="white-space: nowrap;">订单品牌：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label" style="white-space: nowrap;">订单车型：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>全部车型</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">金融类别：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">贷款单来源：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">订单状态：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control ">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">服务费状态：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>全部</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">购车城市：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>全部</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">买车顾问：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">平台单号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-1 col-xs-4 control-label">下单时间： </label>
+                                                <div class="col-lg-4 col-md-5 col-sm-4 col-xs-4">
+                                                    <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                                        <input type="text" class="form-control" name="from">
+                                                        <span class="input-group-addon">to </span>
+                                                        <input type="text" class="form-control" name="to">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 margin-bottom-10">
+                                                    <button type="submit" class="btn  default col-lg-2 col-md-2 col-sm-2 col-xs-2">本月</button>
+                                                    <button type="submit" class="btn default  col-lg-2 col-md-2 col-sm-2 col-xs-2"> 上月 </button>
+                                                    <button type="submit" class="btn default col-lg-3 col-md-3 col-sm-3 col-xs-3">本季度</button>
+                                                    <button type="submit" class="btn default col-lg-3 col-md-3 col-sm-3 col-xs-3">上季度</button>
+                                                </div>
+                                                <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 flr">
+                                                    <button type="submit" class="btn green flr"> 查询</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 padding-top-25">
+                                    <div class="crm-page">共1321条</div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 padding-top-25">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-bordered table-striped margin-0" >
+                                            <thead>
+                                                <tr>
+                                                    <th style="white-space: nowrap;">订单编号</th>
+                                                    <th style="white-space: nowrap;">客户编号</th>
+                                                    <th style="white-space: nowrap;">借贷人信息</th>
+                                                    <th style="white-space: nowrap;">贷款单来源</th>
+                                                    <th style="white-space: nowrap;min-width: 85px;">下单时间</th>
+                                                    <th style="white-space: nowrap;">贷款类别</th>
+                                                    <th style="white-space: nowrap;">订单状态</th>
+                                                    <th style="white-space: nowrap;min-width: 85px;">更新时间</th>
+                                                    <th style="white-space: nowrap;">服务费状态</th>
+                                                    <th style="white-space: nowrap;min-width: 200px;">车款信息</th>
+                                                    <th style="white-space: nowrap;">关联购车单</th>
+                                                    <th style="white-space: nowrap;">买车顾问</th>
+                                                    <th style="white-space: nowrap;">创建人</th>
+                                                    <th style="white-space: nowrap;min-width: 100px;">操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td>张三
+                                                        <br>185****1234</td>
+                                                    <td>2016/07/09
+                                                        <br>17:04:27</td>
+                                                    <td>贷款+新车</td>
+                                                    <td>融资租赁</td>
+                                                    <td>已放款</td>
+                                                    <td>2016/07/09
+                                                        <br>17:04:27</td>
+                                                    <td>无服务费</td>
+                                                    <td>北京现代 朗动 2016款 1.6L 自动 智能型</td>
+                                                    <td> <a href="#">3243151</a></td>
+                                                    <td>关羽</td>
+                                                    <td>关羽</td>
+                                                    <td style="width: 200px;">
+                                                        <a href="#">查看</a>
+                                                        <br>
+                                                        <a href="#">转顾问</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td>张三
+                                                        <br>185****1234</td>
+                                                    <td>2016/07/09
+                                                        <br>17:04:27</td>
+                                                    <td>贷款+新车</td>
+                                                    <td>融资租赁</td>
+                                                    <td>审核中</td>
+                                                    <td>2016/07/09
+                                                        <br>17:04:27</td>
+                                                    <td>无服务费</td>
+                                                    <td>北京现代 朗动 2016款 1.6L 自动 智能型</td>
+                                                    <td> <a href="#">3243151</a></td>
+                                                    <td>关羽</td>
+                                                    <td>关羽</td>
+                                                    <td>
+                                                        <a href="#">查看</a>
+                                                        <br>
+                                                        <a href="#">转顾问</a>
+                                                        <br>
+                                                        <a href="#">收取服务费</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- 分页 BEGIN -->
+                                    <div class="pages">
+                                        <div id="anp" class="paginator">
+                                            <a disabled="disabled" style="margin-right:5px;">首页</a><a disabled="disabled" style="margin-right:5px;">
+                                        &lt;&lt;上一页</a><span class="cpb" style="margin-right:5px;">1</span><a href="javascript:__doPostBack('anp','2')" class="paginator" style="margin-right:5px;">2</a><a class="paginator" href="javascript:__doPostBack('anp','2')" style="margin-right:5px;">下一页&gt;&gt;</a><a class="paginator" href="javascript:__doPostBack('anp','2')" style="margin-right:5px;">末页</a>
+                                        </div>
+                                    </div>
+                                    <!-- 分页 END -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane active clearfix" id="tab7">
+                            <div class="row">
+                                <div class="form-horizontal">
+                                    <div class="col-md-12">
+                                        <div class="c-search">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">订单编号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">客户编号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">客户姓名：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">客户手机号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">保险供应商：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">被保险人：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">保险号码：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">新车订单号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">购车城市：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">买车顾问：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">订单品牌：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control ">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">订单车型：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>全部</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-1 col-xs-4 control-label">创建时间： </label>
+                                                <div class="col-lg-4 col-md-5 col-sm-4 col-xs-4">
+                                                    <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                                        <input type="text" class="form-control" name="from">
+                                                        <span class="input-group-addon">to </span>
+                                                        <input type="text" class="form-control" name="to">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 margin-bottom-10">
+                                                    <button type="submit" class="btn  default col-lg-2 col-md-2 col-sm-2 col-xs-2">本月</button>
+                                                    <button type="submit" class="btn default  col-lg-2 col-md-2 col-sm-2 col-xs-2"> 上月 </button>
+                                                    <button type="submit" class="btn default col-lg-2 col-md-2 col-sm-2 col-xs-2">本周</button>
+                                                    <button type="submit" class="btn default col-lg-2 col-md-2 col-sm-2 col-xs-2">上周</button>
+                                                </div>
+                                                <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 flr">
+                                                    <button type="submit" class="btn green flr"> 查询</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 padding-top-25">
+                                    <div class="crm-page">共1321条</div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 padding-top-25">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-bordered table-striped  margin-0">
+                                            <thead>
+                                                <tr>
+                                                    <th style="white-space: nowrap;">订单编号</th>
+                                                    <th style="white-space: nowrap;">客户编号</th>
+                                                    <th style="white-space: nowrap;">客户信息</th>
+                                                    <th style="white-space: nowrap;">被保险人</th>
+                                                    <th style="white-space: nowrap;">保险供应商</th>
+                                                    <th style="white-space: nowrap;">交强险保单</th>
+                                                    <th style="white-space: nowrap;">交强险金额</th>
+                                                    <th style="white-space: nowrap;">商业险保单</th>
+                                                    <th style="white-space: nowrap;">商业险金额</th>
+                                                    <th style="white-space: nowrap;min-width: 200px;">车款信息</th>
+                                                    <th style="white-space: nowrap;">购车订单</th>
+                                                    <th style="white-space: nowrap;min-width: 85px;">创建时间</th>
+                                                    <th style="white-space: nowrap;">创建人</th>
+                                                    <th style="white-space: nowrap;min-width: 110px;">操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td>张三
+                                                        <br>185****1234</td>
+                                                    <td>2016/07/09
+                                                        <br>17:04:27</td>
+                                                    <td>贷款+新车</td>
+                                                    <td>融资租赁</td>
+                                                    <td>已放款</td>
+                                                    <td>2016/07/09
+                                                        <br>17:04:27</td>
+                                                    <td>无服务费</td>
+                                                    <td>北京现代 朗动 2016款 1.6L 自动 智能型</td>
+                                                    <td> <a href="#">3243151</a></td>
+                                                    <td>关羽</td>
+                                                    <td>关羽</td>
+                                                    <td>
+                                                        <a href="#">查看</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td>张三
+                                                        <br>185****1234</td>
+                                                    <td>2016/07/09
+                                                        <br>17:04:27</td>
+                                                    <td>贷款+新车</td>
+                                                    <td>融资租赁</td>
+                                                    <td>审核中</td>
+                                                    <td>2016/07/09
+                                                        <br>17:04:27</td>
+                                                    <td>无服务费</td>
+                                                    <td>北京现代 朗动 2016款 1.6L 自动 智能型</td>
+                                                    <td> <a href="#">3243151</a></td>
+                                                    <td>关羽</td>
+                                                    <td>关羽</td>
+                                                    <td>
+                                                        <a href="#">查看</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- 分页 BEGIN -->
+                                    <div class="pages">
+                                        <div id="anp" class="paginator">
+                                            <a disabled="disabled" style="margin-right:5px;">首页</a><a disabled="disabled" style="margin-right:5px;">
+                                        &lt;&lt;上一页</a><span class="cpb" style="margin-right:5px;">1</span><a href="javascript:__doPostBack('anp','2')" class="paginator" style="margin-right:5px;">2</a><a class="paginator" href="javascript:__doPostBack('anp','2')" style="margin-right:5px;">下一页&gt;&gt;</a><a class="paginator" href="javascript:__doPostBack('anp','2')" style="margin-right:5px;">末页</a>
+                                        </div>
+                                    </div>
+                                    <!-- 分页 END -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane  clearfix" id="tab8">
+                            <div class="row">
+                                <div class="form-horizontal">
+                                    <div class="col-md-12">
+                                        <div class="c-search">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">订单编号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">客户编号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">客户姓名：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">客户手机号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">精品供应商：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">新车订单号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">订单品牌：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">订单车型：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">购车城市：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">买车顾问：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-1 col-xs-4 control-label">创建时间： </label>
+                                                <div class="col-lg-4 col-md-5 col-sm-4 col-xs-4">
+                                                    <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                                        <input type="text" class="form-control" name="from">
+                                                        <span class="input-group-addon">to </span>
+                                                        <input type="text" class="form-control" name="to">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 margin-bottom-10">
+                                                    <button type="submit" class="btn  default col-lg-2 col-md-2 col-sm-2 col-xs-2">本月</button>
+                                                    <button type="submit" class="btn default  col-lg-2 col-md-2 col-sm-2 col-xs-2"> 上月 </button>
+                                                    <button type="submit" class="btn default col-lg-2 col-md-2 col-sm-2 col-xs-2">本周</button>
+                                                    <button type="submit" class="btn default col-lg-2 col-md-2 col-sm-2 col-xs-2">上周</button>
+                                                </div>
+                                                <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 flr">
+                                                    <button type="submit" class="btn green flr"> 查询</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 padding-top-25">
+                                    <div class="crm-page">共1321条</div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 padding-top-25">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-bordered table-striped " >
+                                            <thead>
+                                                <tr>
+                                                    <th style="white-space: nowrap;">订单编号</th>
+                                                    <th style="white-space: nowrap;">客户编号</th>
+                                                    <th style="white-space: nowrap;">客户信息</th>
+                                                    <th style="white-space: nowrap;">精品供应商</th>
+                                                    <th style="white-space: nowrap;">精品售价</th>
+                                                    <th style="white-space: nowrap;min-width: 200px;">车辆信息</th>
+                                                    <th style="white-space: nowrap;">购车订单</th>
+                                                    <th style="white-space: nowrap;min-width: 85px;">创建时间</th>
+                                                    <th style="white-space: nowrap;">创建人</th>
+                                                    <th style="white-space: nowrap;min-width: 110px;">操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td>张三
+                                                        <br>185****1234</td>
+                                                    <td>2016/07/09
+                                                        <br>17:04:27</td>
+                                                    <td>贷款+新车</td>
+                                                    <td>北京现代 朗动 2016款 1.6L 自动 智能型</td>
+                                                    <td> <a href="#">3243151</a></td>
+                                                    <td>关羽</td>
+                                                    <td>关羽</td>
+                                                    <td>
+                                                        <a href="#">查看</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td>张三
+                                                        <br>185****1234</td>
+                                                    <td>2016/07/09
+                                                        <br>17:04:27</td>
+                                                    <td>贷款+新车</td>
+                                                    <td>北京现代 朗动 2016款 1.6L 自动 智能型</td>
+                                                    <td> <a href="#">3243151</a></td>
+                                                    <td>关羽</td>
+                                                    <td>关羽</td>
+                                                    <td>
+                                                        <a href="#">查看</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- 分页 BEGIN -->
+                                    <div class="pages">
+                                        <div id="anp" class="paginator">
+                                            <a disabled="disabled" style="margin-right:5px;">首页</a><a disabled="disabled" style="margin-right:5px;">
+                                        &lt;&lt;上一页</a><span class="cpb" style="margin-right:5px;">1</span><a href="javascript:__doPostBack('anp','2')" class="paginator" style="margin-right:5px;">2</a><a class="paginator" href="javascript:__doPostBack('anp','2')" style="margin-right:5px;">下一页&gt;&gt;</a><a class="paginator" href="javascript:__doPostBack('anp','2')" style="margin-right:5px;">末页</a>
+                                        </div>
+                                    </div>
+                                    <!-- 分页 END -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane  clearfix" id="tab9">
+                            <div class="row">
+                                <div class="form-horizontal">
+                                    <div class="col-md-12">
+                                        <div class="c-search">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">订单编号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">客户编号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">客户姓名：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">客户手机号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">服务代理商：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">新车订单号：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">订单品牌：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">订单车型：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">购车城市：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-lg-1 col-md-1 col-sm-2 col-xs-2 control-label">买车顾问：</label>
+                                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                                                    <select class="form-control">
+                                                        <option>Option 1</option>
+                                                        <option>Option 2</option>
+                                                        <option>Option 3</option>
+                                                        <option>Option 4</option>
+                                                        <option>Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-10">
+                                                <label class="col-lg-1 col-md-1 col-sm-1 col-xs-4 control-label">创建时间： </label>
+                                                <div class="col-lg-4 col-md-5 col-sm-4 col-xs-4">
+                                                    <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                                        <input type="text" class="form-control" name="from">
+                                                        <span class="input-group-addon">to </span>
+                                                        <input type="text" class="form-control" name="to">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 margin-bottom-10">
+                                                    <button type="submit" class="btn  default col-lg-2 col-md-2 col-sm-2 col-xs-2">本月</button>
+                                                    <button type="submit" class="btn default  col-lg-2 col-md-2 col-sm-2 col-xs-2"> 上月 </button>
+                                                    <button type="submit" class="btn default col-lg-2 col-md-2 col-sm-2 col-xs-2">本周</button>
+                                                    <button type="submit" class="btn default col-lg-2 col-md-2 col-sm-2 col-xs-2">上周</button>
+                                                </div>
+                                                <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12 flr">
+                                                    <button type="submit" class="btn green flr"> 查询</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 padding-top-25">
+                                    <div class="crm-page">共1321条</div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 padding-top-25">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-bordered table-striped " >
+                                            <thead>
+                                                <tr>
+                                                    <th style="white-space: nowrap;">订单编号</th>
+                                                    <th style="white-space: nowrap;">客户编号</th>
+                                                    <th style="white-space: nowrap;">客户信息</th>
+                                                    <th style="white-space: nowrap;">服务代理商</th>
+                                                    <th style="white-space: nowrap;">验车上牌费</th>
+                                                    <th style="white-space: nowrap;min-width: 200px;">车辆信息</th>
+                                                    <th style="white-space: nowrap;">购车订单</th>
+                                                    <th style="white-space: nowrap;min-width: 85px;">创建时间</th>
+                                                    <th style="white-space: nowrap;">创建人</th>
+                                                    <th style="white-space: nowrap;min-width: 110px;">操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td>张三
+                                                        <br>185****1234</td>
+                                                    <td>2016/07/09
+                                                        <br>17:04:27</td>
+                                                    <td>贷款+新车</td>
+                                                    <td>北京现代 朗动 2016款 1.6L 自动 智能型</td>
+                                                    <td> <a href="#">3243151</a></td>
+                                                    <td>关羽</td>
+                                                    <td>关羽</td>
+                                                    <td>
+                                                        <a href="#">查看</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td><a href="#">1851111</a></td>
+                                                    <td>张三
+                                                        <br>185****1234</td>
+                                                    <td>2016/07/09
+                                                        <br>17:04:27</td>
+                                                    <td>贷款+新车</td>
+                                                    <td>北京现代 朗动 2016款 1.6L 自动 智能型</td>
+                                                    <td> <a href="#">3243151</a></td>
+                                                    <td>关羽</td>
+                                                    <td>关羽</td>
+                                                    <td>
+                                                        <a href="#">查看</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- 分页 BEGIN -->
+                                    <div class="pages">
+                                        <div id="anp" class="paginator">
+                                            <a disabled="disabled" style="margin-right:5px;">首页</a><a disabled="disabled" style="margin-right:5px;">
+                                        &lt;&lt;上一页</a><span class="cpb" style="margin-right:5px;">1</span><a href="javascript:__doPostBack('anp','2')" class="paginator" style="margin-right:5px;">2</a><a class="paginator" href="javascript:__doPostBack('anp','2')" style="margin-right:5px;">下一页&gt;&gt;</a><a class="paginator" href="javascript:__doPostBack('anp','2')" style="margin-right:5px;">末页</a>
+                                        </div>
+                                    </div>
+                                    <!-- 分页 END -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END PAGE CONTENT-->
+            </div>
+        </div>
+        <!-- END CONTENT -->
+    </div>
+    <!-- END CONTAINER -->
+    <!--成交订单转顾问弹层-->
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">成交订单转顾问</h4>
+            </div>
+            <div class="modal-body clearfix">
+                <div class="col-lg-12 col-md-12">
+                    <form action="#" class="form-horizontal">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>请将成交订单重新分配或转移给服务客户的买车顾问，并提示新买顾及时、准确的完善成交客户信息。如果客户为自然成交客户，买车顾问处请选择“无”。</p>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="">
+                                        <label class="control-label col-md-3">订单ID：</label>
+                                        <div class="col-md-9">
+                                            <label class="control-label">100024323</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="">
+                                        <label class="control-label col-md-3">订单类型：</label>
+                                        <div class="col-md-9">
+                                            <label class="control-label">竞价订单</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="">
+                                        <label class="control-label col-md-3">下单客户：</label>
+                                        <div class="col-md-9">
+                                            <label class="control-label">王艳梅</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="">
+                                        <label class="control-label col-md-3">商家ID：</label>
+                                        <div class="col-md-9">
+                                            <label class="control-label">50002218</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class=" has-error">
+                                        <label class="control-label col-md-3">买车顾问：</label>
+                                        <div class="col-md-6">
+                                            <select class="form-control">
+                                                <option value="无">无</option>
+                                                <option value="张三">张三</option>
+                                                <option value="张三">张四（已离职）</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="help-block">请选择！</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn blue" data-dismiss="modal">确认</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!--转移服务顾问-->
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">转移服务顾问</h4>
+            </div>
+            <div class="modal-body clearfix">
+                <div class="col-lg-12 col-md-12">
+                    <div class="form-horizontal">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>订单转移后，原服务顾问如不是订单创建人，将无法查看订单信息。</p>
+                                    <p>根据订单状态，会为新服务顾问产生金融待办任务。</p>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="">
+                                        <label class="control-label col-md-3">购车城市：</label>
+                                        <div class="col-md-9">
+                                            <label class="control-label">北京</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class=" has-error">
+                                        <label class="control-label col-md-3">选择买车顾问：</label>
+                                        <div class="col-md-6">
+                                            <select class="form-control">
+                                                <option value="无">无</option>
+                                                <option value="张三">张三</option>
+                                                <option value="张三">张四（已离职）</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <span class="help-block">请选择！</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn blue" data-dismiss="modal">确认</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!--收取服务费-->
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">收取服务费</h4>
+            </div>
+            <div class="modal-body clearfix">
+                <div class="form-horizontal">
+                    <div class="form-body clearfix">
+                        <div class="col-lg-6 col-md-6 padding-0  " style="border-right:1px solid #e5e5e5">
+                            <div class="col-md-12 padding-0">
+                                <label class="control-label col-md-4">借贷人：</label>
+                                <div class="col-md-8">
+                                    <label class="control-label">孙悟空</label>
+                                </div>
+                            </div>
+                            <div class="col-md-12 padding-0">
+                                <div class="">
+                                    <label class="control-label col-md-4">借贷人手机：</label>
+                                    <div class="col-md-8">
+                                        <label class="control-label">18012345678</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 padding-0">
+                                <div class="">
+                                    <label class="control-label col-md-4">金融套餐：</label>
+                                    <div class="col-md-8">
+                                        <label class="control-label">
+                                            广发银行极速贷最长十一
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 padding-0">
+                                <div class="">
+                                    <label class="control-label col-md-4">贷款方式：</label>
+                                    <div class="col-md-8">
+                                        <label class="control-label">首付30%+36期</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 padding-0">
+                                <div class="">
+                                    <label class="control-label col-md-4">贷款金额：</label>
+                                    <div class="col-md-8">
+                                        <label class="control-label">30,000元</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 padding-0">
+                                <div class="">
+                                    <label class="control-label col-md-4">服务费金额：</label>
+                                    <div class="col-md-8">
+                                        <label class="control-label">30,000元</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <p class="text-center">请客户扫描二维码支付服务费</p>
+                            <h4 class="text-center">￥300.00</h4>
+                            <div class="qr-code">
+                                <img src="temp/code.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn blue" data-dismiss="modal">确认</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- BEGIN FOOTER -->
+    <div class="page-footer">
+        <div class="page-footer-inner">
+            2015 &copy; 易车·惠买车
+        </div>
+        <div class="scroll-to-top">
+            <i class="icon-arrow-up"></i>
+        </div>
+    </div>
+    <!-- END FOOTER -->
+    <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- BEGIN CORE PLUGINS -->
+    <!--[if lt IE 9]>
+<script src="../../assets/global/plugins/respond.min.js"></script>
+<script src="../../assets/global/plugins/excanvas.min.js"></script>
+<![endif]-->
+    <script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+    <!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+    <script src="../../assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script src="../../assets/global/plugins/jstree/dist/jstree.min.js"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script src="../../assets/admin/pages/scripts/ui-tree.js"></script>
+    <script src="../../assets/global/scripts/metronic.js" type="text/javascript"></script>
+    <script src="../../assets/crm/layout/scripts/layout.js" type="text/javascript"></script>
+    <script src="../../assets/crm/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
+    <script src="../../assets/crm/layout/scripts/demo.js" type="text/javascript"></script>
+    <script src="../../assets/admin/pages/scripts/components-pickers.js"></script>
+    <script type="text/javascript" src="../../assets/global/plugins/clockface/js/clockface.js"></script>
+    <!--新增。20160722.yangjie5 -->
+    <script type="text/javascript" src="../../assets/global/plugins/select2/select2.min.js"></script>
+    <script>
+    jQuery(document).ready(function() {
+        Metronic.init(); // init metronic core components
+        Layout.init(); // init current layout
+        ComponentsPickers.init();
+        //调用品牌列表
+        new advanceSelect("brandName", {
+            callback: function(data) {
+                alert(data)
+            }
+        });
+        new advanceSelect("brandName2", {
+            callback: function(data) {
+                alert(data)
+            }
+        });
+        new advanceSelect("brandName3", {
+            callback: function(data) {
+                alert(data)
+            }
+        });
+        //新增。20160722.yangjie5
+        $(".js-select2").select2();
+    });
+    </script>
+    <!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+
+</html>

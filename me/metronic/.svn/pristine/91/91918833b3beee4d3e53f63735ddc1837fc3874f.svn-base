@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+    <meta charset="utf-8" />
+    <title>电商CRM - 客户管理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/datatables/extensions/Scroller/css/dataTables.scroller.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css" />
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/jstree/dist/themes/default/style.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/select2/select2.css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN THEME STYLES -->
+    <link href="../../assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/crm/layout/css/layout.css" rel="stylesheet" type="text/css" />
+    <link id="style_color" href="../../assets/crm/layout/css/themes/darkblue.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/crm/layout/css/custom.css" rel="stylesheet" type="text/css" />
+    <!-- END THEME STYLES -->
+    <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
+<!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
+<!-- DOC: Apply "page-sidebar-hide" class to the body to make the sidebar completely hidden on toggle -->
+<!-- DOC: Apply "page-sidebar-closed-hide-logo" class to the body element to make the logo hidden on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-hide" class to body element to completely hide the sidebar on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-fixed" class to have fixed sidebar -->
+<!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
+<!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
+<!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <!-- BEGIN HEADER -->
+    <div class="page-header navbar navbar-fixed-top">
+        <!-- BEGIN HEADER INNER -->
+        <div class="page-header-inner">
+            <!-- BEGIN LOGO -->
+            <div class="page-logo">
+                <a href="index.html">
+                    <img src="../../assets/crm/layout/img/logo.png" alt="logo" class="logo-default" />
+                </a>
+                <div class="menu-toggler sidebar-toggler hide">
+                    <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
+                </div>
+            </div>
+            <!-- END LOGO -->
+            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+            <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+            </a>
+            <!-- END RESPONSIVE MENU TOGGLER -->
+            <!-- BEGIN TOP NAVIGATION MENU -->
+            <div class="top-menu">
+                <ul class="nav navbar-nav pull-right">
+                    <!-- BEGIN USER LOGIN DROPDOWN -->
+                    <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                    <li class="dropdown dropdown-user">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <img alt="" class="img-circle" src="../../assets/crm/layout/img/avatar3_small.jpg" />
+                            <span class="username username-hide-on-mobile">
+                    王艳梅 </span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-default">
+                            <li>
+                                <a href="login.html">
+                                    <i class="icon-key"></i> Log Out </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- END USER LOGIN DROPDOWN -->
+                </ul>
+            </div>
+            <!-- END TOP NAVIGATION MENU -->
+        </div>
+        <!-- END HEADER INNER -->
+    </div>
+    <!-- END HEADER -->
+    <div class="clearfix">
+    </div>
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+        <!-- BEGIN SIDEBAR -->
+        <div class="page-sidebar-wrapper">
+            <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+            <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+            <div class="page-sidebar navbar-collapse collapse">
+                <!-- BEGIN SIDEBAR MENU -->
+                <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+                <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+                <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+                <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+                <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                    <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+                    <li class="sidebar-toggler-wrapper">
+                        <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                        <div class="sidebar-toggler">
+                        </div>
+                        <!-- END SIDEBAR TOGGLER BUTTON -->
+                    </li>
+                    <li class="start">
+                        <a href="javascript:;">
+                            <i class="icon-home"></i>
+                            <span class="title">工作台</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-users"></i>
+                            <span class="title">客户管理</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="javascript:;">
+                                    <i class="fa fa-user"></i> 全部客户 <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="#"><i class="icon-tag"></i> 客户详情页</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="icon-pencil"></i> 订单详情页</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-user"></i> 公共客户</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-user"></i> 超30天未跟进客户</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-file-text-o"></i>
+                            <span class="title">线索管理</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="javascript:;">
+                                    <i class="fa fa-user"></i> 线索管理 <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="#"><i class="icon-tag"></i> 批量导入线索</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="icon-pencil"></i> 线索导入模板</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <i class="fa fa-user"></i> 线索来源配置 <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="#"><i class="icon-settings"></i> 新建/编辑线索来源</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="javascript:;">
+                            <i class="glyphicon glyphicon-briefcase"></i>
+                            <span class="title">业务管理</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="index.html">
+                                    <i class="icon-bar-chart"></i> 买车顾问管理
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="icon-puzzle"></i>
+                            <span class="title">统计报表</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="#"><i class="icon-bar-chart"></i> 买顾工作业绩统计</a></li>
+                            <li><a href="#"><i class="icon-bar-chart"></i> 买顾新分配客户跟进数据</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" target="_blank">
+                            <i class="glyphicon glyphicon-tasks"></i>
+                            <span class="title">
+                    公告管理 </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" target="_blank">
+                            <i class="icon-envelope"></i>
+                            <span class="title">任务管理 </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class=" icon-envelope"></i>
+                            <span class="title">消息中心</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="#"><i class="fa fa-comment-o"></i> 待办提醒<span class="c-red">(100)</span></a></li>
+                            <li><a href="#"><i class="fa fa-comment-o"></i> 订单提醒<span class="c-red">(10)</span></a></li>
+                            <li><a href="#"><i class="fa fa-comment-o"></i> 评价投诉<span class="c-red">(10)</span></a></li>
+                            <li><a href="#"><i class="fa fa-comment-o"></i> 系统公告<span class="c-red">(10)</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- END SIDEBAR MENU -->
+            </div>
+        </div>
+        <!-- END SIDEBAR -->
+        <!-- BEGIN CONTENT -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <!-- BEGIN PAGE HEADER-->
+                <h3 class="page-title">
+                任务管理-设置任务
+            </h3>
+                <div class="page-bar">
+                    <ul class="page-breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="index.html">活动管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="#">创建任务</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END PAGE HEADER-->
+                <!-- BEGIN PAGE CONTENT-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portlet box blue" id="form_wizard_1">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="fa fa-gift"></i> 创建基盘任务
+                                </div>
+                            </div>
+                            <div class="portlet-body form" style="overflow: visible;">
+                                <form action="#" class="form-horizontal text14" id="submit_form" method="POST">
+                                    <div class="form-wizard">
+                                        <div class="form-body">
+                                            <ul class="nav nav-pills nav-justified steps">
+                                                <li>
+                                                    <a href="#tab1" data-toggle="tab" class="step">
+                                                        <span class="number">
+                                                1 </span>
+                                                        <span class="desc">
+                                                <i class="fa fa-check"></i>设置任务</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#tab2" data-toggle="tab" class="step">
+                                                        <span class="number">
+                                                2 </span>
+                                                        <span class="desc">
+                                                <i class="fa fa-check"></i>选择客户范围</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#tab3" data-toggle="tab" class="step active">
+                                                        <span class="number">
+                                                3 </span>
+                                                        <span class="desc">
+                                                <i class="fa fa-check"></i>过滤目标客户</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="tab1">
+                                                    <h4 class="form-section">基本信息</h4>
+                                                    <div class="form-group">
+                                                        <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label"><span class="required" aria-required="true">* </span>客户创建时间：</label>
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                <div class="input-group date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                                                    <input type="text" class="form-control" name="from">
+                                                                    <span class="input-group-addon">
+                                                                            至 </span>
+                                                                    <input type="text" class="form-control" name="to">
+                                                                </div>
+                                                                <div class="has-error">
+                                                                    <span class="help-block">请填写正确时间</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label"><span class="required" aria-required="true">* </span>任务名称：</label>
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                <input type="text" class="form-control " placeholder="">
+                                                                <div class="has-error">
+                                                                    <span class="help-block">请填写正确时间</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label"><span class="required" aria-required="true">* </span>任务类型：</label>
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                <select class="form-control ">
+                                                                    <option>待办类型</option>
+                                                                    <option>短信通知</option>
+                                                                </select>
+                                                                <div class="has-error">
+                                                                    <span class="help-block">请填写正确时间</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label"><span class="required" aria-required="true">* </span>任务说明：</label>
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                <textarea rows="5" placeholder="最多200字" class="col-sm-12 col-md-12"></textarea>
+                                                                <div class="has-error">
+                                                                    <span class="help-block">请填写正确时间</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <h4 class="form-section">任务配置</h4>
+                                                    <!-- 待办类型 -->
+                                                    <div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label"><span class="required" aria-required="true">* </span>产生待办角色：</label>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                                <a href="#js1" class="btn blue col-sm-2 col-md-2">买车顾问</a>
+                                                                <a href="#js2" class="btn default col-sm-2 col-md-2">客服 </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label"><span class="required" aria-required="true">* </span>待办类型：</label>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                                                <select class="form-control margin-bottom-10" id="js1">
+                                                                    <option>请选择买车顾问待办</option>
+                                                                    <option>特别任务</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label"><span class="required" aria-required="true">* </span>待办类型：</label>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+                                                                <select class="form-control" id="js2">
+                                                                    <option>请选择客服待办</option>
+                                                                    <option>客户焐热</option>
+                                                                    <option>客户焐热</option>
+                                                                    <option>团购邀约</option>
+                                                                    <option>特别任务</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+                                                                <select class="form-control" id="js2">
+                                                                    <option>请选择团购</option>
+                                                                    <option>团购1</option>
+                                                                    <option>团购2</option>
+                                                                    <option>团购3</option>
+                                                                    <option>团购4</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--待办类型end  -->
+                                                    <!-- 短信-->
+                                                    <div>
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label"><span class="required" aria-required="true">* </span>发送设置：</label>
+                                                            <div class="col-lg-2 col-md-2 col-sm-2  col-xs-2">
+                                                                <select class="form-control ">
+                                                                    <option>立即发送</option>
+                                                                    <option>定时发送</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <!-- 定时发送 -->
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label"><span class="required" aria-required="true"> </span></label>
+                                                            <div class="col-lg-2 col-md-2 col-sm-2  col-xs-2">
+                                                                <div class="input-group date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                                                    <input type="text" class="form-control" name="from">
+                                                                    <span class="input-group-btn">
+                                                <button class="btn default date-range-toggle" type="button"><i class="fa fa-calendar"></i></button>
+                                                </span>
+                                                                </div>
+                                                                <div class="has-error">
+                                                                    <span class="help-block">请填写正确时间</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class=" col-lg-2 col-md-2 col-sm-2  col-xs-2 ">
+                                                                <select class="form-control " id="js2">
+                                                                    <option>请选择开始时间</option>
+                                                                    <option>00:00</option>
+                                                                    <option>01:00</option>
+                                                                    <option>02:00</option>
+                                                                    <option>03:00</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class=" col-lg-2 col-md-2 col-sm-2  col-xs-2">
+                                                                <select class="form-control  " id="js2">
+                                                                    <option>请选择结束时间</option>
+                                                                    <option>00:00</option>
+                                                                    <option>01:00</option>
+                                                                    <option>02:00</option>
+                                                                    <option>03:00</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ">
+                                                                <input type="text" placeholder="请输入发送次数" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                        <!-- 定时发送 end-->
+                                                        <div class="form-group">
+                                                            <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label"><span class="required" aria-required="true">* </span>短信文本：</label>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                                <textarea rows="3" placeholder="限制输入140字" class="col-sm-12 col-md-12"></textarea>
+                                                                <div class="has-error">
+                                                                    <span class="help-block">短信内容字数太多，请重新填写</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--短信end  -->
+                                                </div>
+                                                <div class="tab-pane" id="tab2">
+                                                    <div class="form-group form-section form-title">
+                                                        <label class="col-lg-6 col-md-6 col-sm-6 col-xs-6 control-label has-error">
+                                                            已选条件覆盖客户数量：<span>1000</span> <span class="word-loading"><img src="temp/sloading.gif"></span>
+                                                            <span class="help-block"><span class="required" aria-required="true">* </span>修改条件后请刷新当前客户数量</span>
+                                                        </label>
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                            <a href="javascript:;" class="btn green margin-top-10">查询</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label"><span class="required" aria-required="true">* </span>客户创建时间：</label>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                <div class="input-group date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                                                    <input type="text" class="form-control" name="from">
+                                                                    <span class="input-group-addon">
+                                                                            至 </span>
+                                                                    <input type="text" class="form-control" name="to">
+                                                                </div>
+                                                                <div class="has-error">
+                                                                    <span class="help-block">请填写正确时间</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-lg-2 col-md-2 col-sm-3 col-xs-3 "><span class="required" aria-required="true">* </span>客户级别：</label>
+                                                        <div class="col-lg-6 col-md-6 col-sm-9 col-xs-9 ">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                <a href="javascript:;" class="btn blue col-lg-1 col-md-1 col-sm-1 col-xs-1">N</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1 ">H</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1 ">A</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1 ">B</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1">C</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1 ">D</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1">F0</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1">F</a>
+                                                            </div>
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 has-error">
+                                                                <span class="help-block">请选择客户级别</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-lg-2 col-md-2 col-sm-3 col-xs-3"><span class="required" aria-required="true">* </span>购车意向：</label>
+                                                        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9 btn-padding-small">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-small margin-bottom-10">
+                                                                <a href="javascript:;" class="btn green col-lg-1 col-md-1 col-sm-2 col-xs-2 ">编辑</a>
+                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 has-error">
+                                                                    <span class="help-block">请选择购车意向</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                <a href="javascript:;" class="btn blue col-lg-1 col-md-1 col-sm-2 col-xs-2">品牌意向</a>
+                                                                <label class="line-height-34 text-left col-lg-10 col-md-10 col-sm-8 col-xs-8">大众，宝马，奔驰，奥迪大众，宝马，奔驰，奥迪大众，宝马，奔驰，奥迪大众，宝马，奔驰，奥迪大众，宝马，奔驰，奥迪大众，宝马，奔驰，奥迪大众，宝马，奔驰，奥迪大众，宝马，奔驰，奥迪</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group  ">
+                                                        <label class="control-label col-lg-2 col-md-2 col-sm-3 col-xs-3"><span class="required" aria-required="true">* </span>购车城市：</label>
+                                                        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9 ">
+                                                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 margin-bottom-10">
+                                                                <select class="js-select2 form-control">
+                                                                    <option value="全部城市">全部城市</option>
+                                                                    <option value="北京">北京</option>
+                                                                    <option value="上海">上海</option>
+                                                                    <option value="杭州">杭州</option>
+                                                                    <option value="郑州">郑州</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="has-error col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                                <span class="help-block">请选择购车意向</span>
+                                                            </div>
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 btn-city clearfix">
+                                                                <a href="javascript:;" class="btn blue col-lg-2 col-md-2 col-sm-4 col-xs-4 margin-bottom-10"><i class="fa  close"></i><span>北京</span></a>
+                                                                <a href="javascript:;" class="btn blue col-lg-2 col-md-2 col-sm-4 col-xs-4 margin-bottom-10"><i class="fa  close"></i><span>北京</span></a>
+                                                                <a href="javascript:;" class="btn blue col-lg-2 col-md-2 col-sm-4 col-xs-4 margin-bottom-10"><i class="fa  close"></i><span>北京</span></a>
+                                                                <a href="javascript:;" class="btn blue col-lg-2 col-md-2 col-sm-4 col-xs-4 margin-bottom-10"><i class="fa  close"></i><span>北京呵呵啊</span></a>
+                                                                <a href="javascript:;" class="btn blue col-lg-2 col-md-2 col-sm-4 col-xs-4 margin-bottom-10"><i class="fa  close"></i><span>北京</span></a>
+                                                                <a href="javascript:;" class="btn blue col-lg-2 col-md-2 col-sm-4 col-xs-4 margin-bottom-10"><i class="fa  close"></i><span>北京</span></a>
+                                                                <a href="javascript:;" class="btn blue col-lg-2 col-md-2 col-sm-4 col-xs-4 margin-bottom-10"><i class="fa  close"></i><span>北京</span></a>
+                                                                <a href="javascript:;" class="btn blue col-lg-2 col-md-2 col-sm-4 col-xs-4 margin-bottom-10"><i class="fa  close"></i><span>北京</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group  ">
+                                                        <label class="control-label col-lg-2 col-md-2 col-sm-3 col-xs-3">上牌城市：</label>
+                                                        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9 ">
+                                                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 margin-bottom-10">
+                                                                <select class="js-select2 form-control">
+                                                                    <option value="全部城市">全部城市</option>
+                                                                    <option value="北京">北京</option>
+                                                                    <option value="上海">上海</option>
+                                                                    <option value="杭州">杭州</option>
+                                                                    <option value="郑州">郑州</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 btn-city">
+                                                                <a href="javascript:;" class="btn blue col-lg-2 col-md-2 col-sm-4 col-xs-4 margin-bottom-10"><i class="fa  close"></i><span>北京</span></a>
+                                                                <a href="javascript:;" class="btn blue col-lg-2 col-md-2 col-sm-4 col-xs-4 margin-bottom-10"><i class="fa  close"></i><span>北京</span></a>
+                                                                <a href="javascript:;" class="btn blue col-lg-2 col-md-2 col-sm-4 col-xs-4 margin-bottom-10"><i class="fa  close"></i><span>北京</span></a>
+                                                                <a href="javascript:;" class="btn blue col-lg-2 col-md-2 col-sm-4 col-xs-4 margin-bottom-10"><i class="fa  close"></i><span>呼和浩特</span></a>
+                                                                <a href="javascript:;" class="btn blue col-lg-2 col-md-2 col-sm-4 col-xs-4 margin-bottom-10"><i class="fa  close"></i><span>北京</span></a>
+                                                                <a href="javascript:;" class="btn blue col-lg-2 col-md-2 col-sm-4 col-xs-4 margin-bottom-10"><i class="fa  close"></i><span>北京</span></a>
+                                                                <a href="javascript:;" class="btn blue col-lg-2 col-md-2 col-sm-4 col-xs-4 margin-bottom-10"><i class="fa  close"></i><span>北京</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-lg-2 col-md-2 col-sm-3 col-xs-3">购车指标：</label>
+                                                        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9 btn-padding-small">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                <a href="javascript:;" class="btn blue col-lg-1 col-md-1 col-sm-2 col-xs-2">有指标</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-2 col-xs-2">无指标</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-2 col-xs-2">未知</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-lg-2 col-md-2 col-sm-3 col-xs-3">客户属性：</label>
+                                                        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9  btn-padding-small">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                <a href="javascript:;" class="btn blue col-lg-1 col-md-1 col-sm-2 col-xs-2 ">金融意向</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-2 col-xs-2">置换意向</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-2 col-xs-2">同城</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-lg-2 col-md-2 col-sm-3 col-xs-3">客户标签：</label>
+                                                        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 btn-padding-small">
+                                                                <a href="javascript:;" class="btn blue col-lg-2 col-md-3 col-sm-1 col-xs-1">大客户</a>
+                                                                <a href="javascript:;" class="btn default col-lg-2 col-md-3 col-sm-1 col-xs-1 ">内部推荐</a>
+                                                                <a href="javascript:;" class="btn default col-lg-2 col-md-3 col-sm-1 col-xs-1 ">老客户推荐</a>
+                                                                <a href="javascript:;" class="btn default col-lg-2 col-md-3 col-sm-1 col-xs-1 ">买顾亲友</a>
+                                                                <a href="javascript:;" class="btn default col-lg-2 col-md-3 col-sm-1 col-xs-1 ">VIP</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-lg-2 col-md-2 col-sm-3 col-xs-3">客户来源：</label>
+                                                        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9 btn-padding-small">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                <a href="javascript:;" class="btn blue col-lg-1 col-md-1 col-sm-2 col-xs-2">线上</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-2 col-xs-2 ">线下</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-2 col-xs-2 ">线索</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-lg-2 col-md-2 col-sm-3 col-xs-3">客户状态：</label>
+                                                        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9 btn-padding-small">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                <a href="javascript:;" class="btn blue col-lg-1 col-md-1 col-sm-2 col-xs-2">待分配</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-2 col-xs-2">跟进中</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-2 col-xs-2">已成交</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-lg-2 col-md-2 col-sm-3 col-xs-3">未处理待办：</label>
+                                                        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9 btn-padding-small">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                <a href="javascript:;" class="btn blue col-lg-1 col-md-1 col-sm-2 col-xs-2">有</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-2 col-xs-2">无</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-lg-2 col-md-2 col-sm-3 col-xs-3">跟进阶段：</label>
+                                                        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9 btn-padding-small">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                <a href="javascript:;" class="btn blue col-lg-1 col-md-1 col-sm-1 col-xs-1">初步沟通</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1 ">确定意向</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1 ">提供报价</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1 ">进店看车</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1 ">成功购车</a>
+                                                                <a href="javascript:;" class="btn default col-lg-1 col-md-1 col-sm-1 col-xs-1 ">停滞客户</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group  ">
+                                                        <label class="control-label col-lg-2 col-md-2 col-sm-3 col-xs-3">最后跟进时间：</label>
+                                                        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9 ">
+                                                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                                                <select class="form-control">
+                                                                    <option>请选择</option>
+                                                                    <option>早于</option>
+                                                                    <option>晚于</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                                                <div class="input-group date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                                                    <input type="text" class="form-control" name="from">
+                                                                    <span class="input-group-btn">
+                                                <button class="btn default date-range-toggle" type="button"><i class="fa fa-calendar"></i></button>
+                                                </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group  ">
+                                                        <label class="control-label col-lg-2 col-md-2 col-sm-3 col-xs-3">购车预算：</label>
+                                                        <div class="col-lg-10 col-md-10 col-sm-9 col-xs-9 ">
+                                                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                                                <select class="form-control">
+                                                                    <option>请选择</option>
+                                                                    <option>5万以下</option>
+                                                                    <option>5-8万</option>
+                                                                    <option>8-10万</option>
+                                                                    <option>10-15万</option>
+                                                                    <option>15-20万</option>
+                                                                    <option>20-25万</option>
+                                                                    <option>25-30万</option>
+                                                                    <option>30-40万</option>
+                                                                    <option>40-50万</option>
+                                                                    <option>50万以上</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label">预计购车时间：</label>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                <div class="input-group date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                                                    <input type="text" class="form-control" name="from">
+                                                                    <span class="input-group-addon">
+                                                                            至 </span>
+                                                                    <input type="text" class="form-control" name="to">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <h4 class="form-section">选择维保产品</h4>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-lg-2 col-md-2 col-sm-3 col-xs-3">订单状态：</label>
+                                                        <div class="ccol-lg-10 col-md-10 col-sm-9 col-xs-9 btn-padding-small">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  margin-bottom-10">
+                                                                <a href="javascript:;" class="btn green col-lg-1 col-md-1 col-sm-2 col-xs-2 ">编辑</a>
+                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 has-error btn-padding-small">
+                                                                    <span class="help-block">请选择购车意向</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                <a href="javascript:;" class="btn blue col-lg-1 col-md-1 col-sm-2 col-xs-2 ">竞价订单</a>
+                                                                <label class="line-height-34 text-left col-lg-10 col-md-10 col-sm-8 col-xs-8">订单待支付，商家报价中，已成交</label>
+                                                            </div>
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                <a href="javascript:;" class="btn blue col-lg-1 col-md-1 col-sm-2 col-xs-2 ">买顾订单</a>
+                                                                <label class="line-height-34 text-left col-lg-10 col-md-10 col-sm-8 col-xs-8">已报价，交易成功</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-lg-2 col-md-2 col-sm-3 col-xs-3 control-label">下单时间：</label>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                                                <div class="input-group date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                                                    <input type="text" class="form-control" name="from">
+                                                                    <span class="input-group-addon">
+                                                                            至 </span>
+                                                                    <input type="text" class="form-control" name="to">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group form-section form-title">
+                                                        <label class="col-lg-6 col-md-6 col-sm-6 col-xs-6 control-label has-error">
+                                                            已选条件覆盖客户数量：<span>1000</span>
+                                                            <span class="word-loading"><img src="temp/sloading.gif"></span>
+                                                            <span class="help-block"><span class="required" aria-required="true">* </span>修改条件后请刷新当前客户数量</span>
+                                                        </label>
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                            <a href="javascript:;" class="btn green margin-top-10">查询</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" id="tab3">
+                                                    <form class="form-horizontal" role="form">
+                                                        <div class="col-md-12">
+                                                            <div class="c-search">
+                                                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 margin-bottom-10">
+                                                                    <label class="col-lg-4 col-md-4 col-sm-4 col-xs-4 control-label">买顾姓名：</label>
+                                                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                                                        <input type="text" class="form-control" placeholder="请输入姓名">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 margin-bottom-10">
+                                                                    <label class="col-lg-4 col-md-4 col-sm-4 col-xs-4control-label">客服姓名：</label>
+                                                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                                                        <input type="text" class="form-control" placeholder="请输入姓名">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 margin-bottom-10">
+                                                                    <div class="flr col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                        <button type="submit" class="btn green flr"> 查询 </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                    <div class="">
+                                                        <div class="col-lg-12 padding-top-25 margin-bottom-10">
+                                                            <button type="submit" class="btn green ">删除</button>
+                                                            <div class="crm-page flr">共1321条</div>
+                                                        </div>
+                                                        <div class="col-lg-12 ">
+                                                            <div class="table-responsive">
+                                                                <table class="table table-hover table-bordered table-striped portlet-nomargin">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th width="50">
+                                                                                <div class="checkbox-list">
+                                                                                    <label class="checkbox-inline">
+                                                                                        <input type="checkbox">
+                                                                                    </label>
+                                                                                </div>
+                                                                            </th>
+                                                                            <th>客户姓名</th>
+                                                                            <th>手机号</th>
+                                                                            <th>客户级别</th>
+                                                                            <th>购车城市</th>
+                                                                            <th>上牌城市</th>
+                                                                            <th>意向品牌</th>
+                                                                            <th>车型</th>
+                                                                            <th>客户状态</th>
+                                                                            <th>买车顾问</th>
+                                                                            <th>客服</th>
+                                                                            <th>创建时间</th>
+                                                                            <th>操作</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <div class="checkbox-list">
+                                                                                    <label class="checkbox-inline">
+                                                                                        <input type="checkbox">
+                                                                                    </label>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>张无忌</td>
+                                                                            <td>186012345678</td>
+                                                                            <td>A</td>
+                                                                            <td>北京</td>
+                                                                            <td>北京</td>
+                                                                            <td>奥迪</td>
+                                                                            <td>A4</td>
+                                                                            <td>跟进中</td>
+                                                                            <td>孙悟空</td>
+                                                                            <td>貂蝉</td>
+                                                                            <td>2016-08-25 10:00:00</td>
+                                                                            <td>
+                                                                                <a href="javascript:;">
+                                        删除</a> <a href="javascript:;">
+                                        查看</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <!-- 分页 BEGIN -->
+                                                        <div class="page-wraper-new">
+                                                            <div class="pages">
+                                                                <div id="anp" class="paginator">
+                                                                    <a disabled="disabled" style="margin-right:5px;">首页</a><a disabled="disabled" style="margin-right:5px;">&lt;&lt;上一页</a><span class="cpb" style="margin-right:5px;">1</span><a href="javascript:__doPostBack('anp','2')" class="paginator" style="margin-right:5px;">2</a><a class="paginator" href="javascript:__doPostBack('anp','2')" style="margin-right:5px;">下一页&gt;&gt;</a><a class="paginator" href="javascript:__doPostBack('anp','2')" style="margin-right:5px;">末页</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- 分页 END -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-actions">
+                                                <div class="row">
+                                                    <div class="text-center">
+                                                        <a href="javascript:;" class="btn default button-previous">
+                                                            <i class="m-icon-swapleft"></i> 返回 </a>
+                                                        <a href="javascript:;" class="btn green button-next">
+                                                    下一步 <i class="m-icon-swapright m-icon-white"></i>
+                                                </a>
+                                                        <a href="javascript:;" data-toggle="modal" class="btn green button-submit">
+                                                    创建任务 <i class="m-icon-swapright m-icon-white"></i>
+                                                </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END PAGE CONTENT-->
+                </div>
+            </div>
+            <!-- END CONTENT -->
+        </div>
+    </div>
+    <!-- END CONTAINER -->
+    <!-- 弹层 1-->
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">确认删除客户</h4>
+            </div>
+            <div class="modal-body clearfix">
+                <div class="col-lg-12 col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <p>确认删除所选客户？</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <p>删除后客户数量：<span>800</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn blue" data-dismiss="modal">确认</button>
+                <button type="button" class="btn default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+    <!-- 弹层 1-->
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">确认创建待办任务</h4>
+            </div>
+            <div class="modal-body clearfix">
+                <div class="col-lg-12 col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <p>当前任务覆盖客户数量：<span>1000</span></p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <p>实际产生任务数量根据待办分配规则为准。</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <p>确定创建？</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn blue" data-dismiss="modal">确认</button>
+                <button type="button" class="btn default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+    <!-- 弹层 1-->
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">无法创建任务</h4>
+            </div>
+            <div class="modal-body clearfix">
+                <div class="col-lg-12 col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <p>当前客户数量&#40;<span>1200</span>&#41;超出任务数量限制&#40;<span>1000</span>&#41;，无法创建任务。</p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <p>请调整客户选取范围。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn blue" data-dismiss="modal">确认</button>
+                <button type="button" class="btn default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+    <!-- 弹层 1-->
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">确认发送短信</h4>
+            </div>
+            <div class="modal-body clearfix">
+                <div class="col-lg-12 col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <p>当前任务覆盖客户数量：<span>1000</span></p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <p>短信发送数量：<span>1000</span></p>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <p>确定创建？</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn blue" data-dismiss="modal">确认</button>
+                <button type="button" class="btn default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+    <!-- 弹层 1-->
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">客户范围超限</h4>
+            </div>
+            <div class="modal-body clearfix">
+                <div class="col-lg-12 col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <p>当前所选客户数量<span>1000</span>，超出最大限制<span>1000</span>，请调整选择范围
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn blue" data-dismiss="modal">确认</button>
+                <button type="button" class="btn default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+    <!-- 弹层 设定购车意向-->
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">设定购车意向</h4>
+            </div>
+            <div class=" modal-body clearfix">
+                <div class="form-horizontal padding-top-10 scroll-body">
+                    <!-- BEGIN PAGE CONTENT-->
+                    <div class="col-lg-12">
+                        <div class="tabbable tabbable-tabdrop  layer-order ">
+                            <div class="col-md-12  margin-bottom-10">
+                                <ul class="layer-order-list clearfix ">
+                                    <li>
+                                        <a href="#tab00" data-toggle="tab" class="btn green">品牌意向</a>
+                                    </li>
+                                    <li>
+                                        <a href="#tab11" data-toggle="tab" class="btn default">车型意向</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-content padding-top-10 ">
+                                <div class="tab-pane active" id="tab00">
+                                    <div class="form-group margin-0 ">
+                                        <label class="control-label col-md-2">意向品牌：</label>
+                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 ">
+                                            <div class=" col-md-12">
+                                                <select class="js-select2 form-control">
+                                                    <option value="输入品牌关键字">全部城市</option>
+                                                    <option value="北京">北京</option>
+                                                    <option value="上海">上海</option>
+                                                    <option value="杭州">杭州</option>
+                                                    <option value="郑州">郑州</option>
+                                                </select>
+                                            </div>
+                                            <div class="has-error col-md-12 ">
+                                                <span class="help-block">已添加此品牌</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group margin-0 ">
+                                        <label class="control-label  col-md-2">已选择品牌：</label>
+                                        <div class="col-md-10 ">
+                                            <div class=" col-md-12 btn-city clearfix">
+                                                <a href="javascript:;" class="btn green  margin-bottom-10"><i class="fa  close"></i> <span>北京</span></a>
+                                                <a href="javascript:;" class="btn green  margin-bottom-10"><i class="fa close"></i><span>呼和浩特</span></a>
+                                                <a href="javascript:;" class="btn green  margin-bottom-10"><i class="fa  close"></i> <span>北京</span></a>
+                                                <a href="javascript:;" class="btn green  margin-bottom-10"><i class="fa close"></i><span>呼和浩特</span></a>
+                                                <a href="javascript:;" class="btn green  margin-bottom-10"><i class="fa  close"></i> <span>北京</span></a>
+                                                <a href="javascript:;" class="btn green  margin-bottom-10"><i class="fa close"></i><span>呼和浩特</span></a>
+                                                <a href="javascript:;" class="btn green  margin-bottom-10"><i class="fa  close"></i> <span>北京</span></a>
+                                                <a href="javascript:;" class="btn green  margin-bottom-10"><i class="fa close"></i><span>呼和浩特</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab11">
+                                    <div class="form-group  margin-0">
+                                        <label class="control-label col-md-2">意向品牌：</label>
+                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 ">
+                                            <div class=" col-md-12 margin-bottom-10">
+                                                <select class="js-select2 form-control">
+                                                    <option value="输入品牌关键字">全部城市</option>
+                                                    <option value="北京">北京</option>
+                                                    <option value="上海">上海</option>
+                                                    <option value="杭州">杭州</option>
+                                                    <option value="郑州">郑州</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group  margin-0">
+                                        <label class="control-label col-md-2">意向车型：</label>
+                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 ">
+                                            <div class=" col-md-12 margin-bottom-10">
+                                                <select class=" form-control">
+                                                    <option value="输入品牌关键字">请先选择品牌</option>
+                                                    <option value="北京">北京</option>
+                                                    <option value="上海">上海</option>
+                                                    <option value="杭州">杭州</option>
+                                                    <option value="郑州">郑州</option>
+                                                </select>
+                                                <div class="has-error">
+                                                    <span class="help-block">已添加此品牌</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group margin-0 ">
+                                        <label class="control-label  col-md-2">已选择车型：</label>
+                                        <div class="col-md-10 ">
+                                            <div class=" col-md-12 btn-city clearfix">
+                                                <a href="javascript:;" class="btn green  margin-bottom-10"><i class="fa  close"></i> <span>北京</span></a>
+                                                <a href="javascript:;" class="btn green  margin-bottom-10"><i class="fa close"></i><span>呼和浩特</span></a>
+                                                <a href="javascript:;" class="btn green  margin-bottom-10"><i class="fa  close"></i> <span>北京</span></a>
+                                                <a href="javascript:;" class="btn green  margin-bottom-10"><i class="fa close"></i><span>呼和浩特</span></a>
+                                                <a href="javascript:;" class="btn green  margin-bottom-10"><i class="fa  close"></i> <span>北京</span></a>
+                                                <a href="javascript:;" class="btn green  margin-bottom-10"><i class="fa close"></i><span>呼和浩特</span></a>
+                                                <a href="javascript:;" class="btn green  margin-bottom-10"><i class="fa  close"></i> <span>北京</span></a>
+                                                <a href="javascript:;" class="btn green  margin-bottom-10"><i class="fa close"></i><span>呼和浩特</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END PAGE CONTENT-->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn blue" data-dismiss="modal">确认</button>
+                <button type="button" class="btn default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+    <!-- 弹层 1-->
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">设定订单状态</h4>
+            </div>
+            <div class=" modal-body clearfix">
+                <div class="form-horizontal padding-top-10">
+                    <!-- BEGIN PAGE CONTENT-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="tabbable tabbable-tabdrop form-group layer-order ">
+                                <label class="control-label col-md-2">订单类型：</label>
+                                <div class="col-md-10">
+                                    <ul class="layer-order-list clearfix ">
+                                        <li>
+                                            <a href="#dx1" data-toggle="tab" class="btn green"><i class="fa fa-check-square-o"></i>竞价订单</a>
+                                        </li>
+                                        <li>
+                                            <a href="#dx2" data-toggle="tab" class="btn default">
+                                                <i class="fa fa-square-o"></i>买顾订单</a>
+                                        </li>
+                                        <li>
+                                            <a href="#dx3" data-toggle="tab" class="btn default"><i class="fa fa-square-o"></i>团购订单</a>
+                                        </li>
+                                        <li>
+                                            <a href="#dx4" data-toggle="tab" class="btn default"><i class="fa fa-square-o"></i>金融订单</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="dx1">
+                                        <label class="control-label col-md-2">意向品牌：</label>
+                                        <div class="form-group col-md-10 ">
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">订单待支付
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">商家报价中
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">已选商家
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">取消订单
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">已成交
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">订单状态示例
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">订单状态示例
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">订单状态示例
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">订单状态示例
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="dx2">
+                                        <label class="control-label col-md-2">意向品牌：</label>
+                                        <div class="form-group col-md-10 ">
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">最多六个字
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">商家报价中
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">已选商家
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">取消订单
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">已成交
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">订单状态示例
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">订单状态示例
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">订单状态示例
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">订单状态示例
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="dx3">
+                                        <label class="control-label col-md-2">意向品牌：</label>
+                                        <div class="form-group col-md-10 ">
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">订单待支付3
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">商家报价中
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">已选商家
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">取消订单
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">已成交
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">订单状态示例
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">订单状态示例
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">订单状态示例
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">订单状态示例
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane " id="dx4">
+                                        <label class="control-label col-md-2">意向品牌：</label>
+                                        <div class="form-group col-md-10 ">
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">订单待支付4
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">商家报价中
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">已选商家
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">取消订单
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">已成交
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">订单状态示例
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">订单状态示例
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">订单状态示例
+                                            </label>
+                                            <label class="checkbox-inline col-md-4 margin-0">
+                                                <input type="checkbox" value="">订单状态示例
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END PAGE CONTENT-->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn blue" data-dismiss="modal">确认</button>
+                <button type="button" class="btn default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+    <!-- BEGIN FOOTER -->
+    <div class="page-footer">
+        <div class="page-footer-inner">
+            2015 &copy; 易车·惠买车
+        </div>
+        <div class="scroll-to-top">
+            <i class="icon-arrow-up"></i>
+        </div>
+    </div>
+    <!-- END FOOTER -->
+    <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- BEGIN CORE PLUGINS -->
+    <!--[if lt IE 9]>
+<script src="../../assets/global/plugins/respond.min.js"></script>
+<script src="../../assets/global/plugins/excanvas.min.js"></script> 
+<![endif]-->
+    <script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+    <!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+    <script src="../../assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script type="text/javascript" src="../../assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    <script src="../../assets/global/plugins/jstree/dist/jstree.min.js"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <!--新增-->
+    <script type="text/javascript" src="../../assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../assets/global/plugins/select2/select2.min.js"></script>
+    <script src="../../assets/global/scripts/metronic.js" type="text/javascript"></script>
+    <script src="../../assets/admin/pages/scripts/form-wizard.js"></script>
+    <script src="../../assets/admin/pages/scripts/ui-tree.js"></script>
+    <script src="../../assets/global/scripts/metronic.js" type="text/javascript"></script>
+    <script src="../../assets/crm/layout/scripts/layout.js" type="text/javascript"></script>
+    <script src="../../assets/crm/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
+    <script src="../../assets/admin/pages/scripts/components-pickers.js"></script>
+    <!-- // <script src="../../assets/crm/layout/scripts/demo.js" type="text/javascript"></script> -->
+    <script src="../../assets/admin/pages/scripts/components-pickers.js"></script>
+    <script>
+    jQuery(document).ready(function() {
+
+        // initiate layout and plugins
+        FormWizard.init();
+        //调用品牌列表
+        new advanceSelect("brandName", {
+            callback: function(data) {
+                alert(data)
+            }
+        });
+
+        ComponentsPickers.init(); //init 日历
+        $(".js-select2").select2(); //搜索选择
+        Metronic.init(); // init metronic core components
+        Layout.init(); // init current layout
+        ComponentsPickers.init(); //init 日历
+        //TableAdvanced.init();
+
+
+    });
+    </script>
+    <!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+
+</html>
